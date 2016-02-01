@@ -1,0 +1,44 @@
+%header.jumbotron.jumbotron-general
+  .container
+    %h1.jumbotron-h1
+    %p
+      .jumbo-title
+        %h1
+          = @genre.type == 'EventType' ? 'Event' : 'Circle'
+        %hr
+        %p.lead.jumbo
+          - if @genre.type == 'EventType'
+            Briefing Party Performance Activity
+            %br
+            CherryBlossom Camp Watching Others
+          - else
+            Academic Hobby Art
+            %br
+            Music Sports Others
+.under-jumbotron
+.container.index
+  %h3.title
+    = @genre.type == 'EventType' ? 'Events List' : 'Circles List'
+    %span.circle-num
+      = @contents.length
+      = @genre.type == 'EventType' ? 'events' : 'circles'
+  %hr.title
+    .circle-list
+      %h4
+        = @genre.name
+      - if @genre.type == 'EventType'
+        = render partial: 'events/event', collection: @contents
+      - else
+        .col-md-4
+          .panel.panel-primary
+            .panel-heading
+              %h3.panel-title
+                マイルストーン編集会
+            .panel-body
+              この雑誌作ってます
+            .info-content
+              .circle-number
+                No.1
+              .genre
+                = link_to '#' do
+                  %span.label.label-primary 出版

@@ -1,0 +1,48 @@
+.container
+  .col-lg-1
+  .col-lg-10
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+      = devise_error_messages!
+      %fieldset
+        %legend
+          %h2
+            Edit #{resource_name.to_s.humanize}
+        .col-lg-1.col-md-1
+        .col-lg-10.col-md-10.circle-new
+          .form-group
+            = f.label :nickname, class: 'col-lg-4 col-md-4  control-label', for: 'inputNickname'
+            .col-lg-8.col-md-8
+              = f.text_field :nickname, placeholder: 'nickname', class: 'form-control', id: 'inputNickname'
+          .form-group
+            = f.label :email, class: 'col-lg-4 col-md-4  control-label', for: 'inputEmail'
+            .col-lg-8.col-md-8
+              = f.email_field :email, placeholder: 'email', class: 'form-control', id: 'inputEmail'
+              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                %div
+                  只今こちらのアドレスは認証待ちです: #{resource.unconfirmed_email}
+          .form-group
+            = f.label :password, class: 'col-lg-4 col-md-4 control-label', for: 'inputPassword'
+            .col-lg-8.col-md-8
+              = f.password_field :password, placeholder: "new password", autocomplete: "off", class: 'form-control', id: 'inputPassword'
+              %span.help-block 変更しない場合は何も入力しないでください
+          .form-group
+            = f.label :password_confirmation, class: 'col-lg-4 col-md-4 control-label password-confirmation', for: 'inputPasswordConfirmation'
+            .col-lg-8.col-md-8
+              = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "off", class: 'form-control', id: 'inputPasswordConfirmation'
+              %span.hrml-block 確認のためパスワードを入力してださい。
+          .form-group
+            .col-lg-12.btn-update
+              = f.submit 'Update', class: 'btn btn-primary'
+    .col-xs-2
+    .delete-user.col-xs-8
+      %h4 アカウントを削除する
+      %p.unhappy
+        Unhappy?
+      .col-lg-2
+      .col-lg-8
+        = link_to "アカウントを削除する", registration_path(resource_name), class: 'btn btn-primary' , data: { confirm: "本当によろしいですか？(サークル情報は削除されません。)" }, method: :delete
+      .col-lg-2
+      .back.col-lg-12
+        = link_to :back do
+          %i.glyphicon.glyphicon-menu-right
+          戻る

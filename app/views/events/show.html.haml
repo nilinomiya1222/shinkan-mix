@@ -1,0 +1,73 @@
+%header.jumbotron.jumbotron-events-show
+  .container
+    %h1.jumbotron-h1.show
+      %h1.icon
+        %span
+          = @event.event_type.name
+      .clearfix
+        %h3.jumbotron-circle-name
+          = @event.circle.name
+  %hr.hr-circle-name
+.under-jumbotron
+.container
+  .col-lg-2
+  .col-lg-8.mypage
+    .title
+      %h3 Event Information
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th.key head
+          %th.value content
+      %tbody
+        %tr
+          %td.key イベントジャンル
+          %td.value
+            = @event.event_type.name
+        %tr
+          %td.key サークル名
+          %td.value
+            = @event.circle.name
+        %tr
+          %td.key サークルジャンル
+          %td.value
+            %i{ class: "glyphicon glyphicon-#{@event.circle.circle_genre.genre_icon(@event.circle.lg_genre_name)}" }
+            = @event.circle.circle_genre.name
+        %tr
+          %td.key PR
+          %td.value
+            = @event.circle.pr
+        %tr
+          %td.key 日付
+          %td.value
+            = @event.date.strftime('%m月%d日')
+        %tr
+          %td.key 集合場所
+          %td.value
+            = @event.meeting_place
+        %tr
+          %td.key 集合時間
+          %td.value
+            = @event.meeting_time.strftime('%H:%M')
+        %tr
+          %td.key 参加費
+          %td.value
+            = @event.fee
+            yen
+        %tr
+          %td.key 実施場所
+          %td.value
+            = @event.place
+        %tr
+          %td.key イベント内容
+          %td.value
+            = @event.appeal
+    - if current_user.id == @event.circle.user_id
+      = link_to 'Edit', edit_event_path(id: @event.id), class: 'btn btn-primary event-edit'
+    %hr.span
+  .col-lg-2
+  .col-lg-12
+    .title
+      %h3 Presented by
+    .col-md-4
+    = render partial: 'circles/circle', collection: @event.circle

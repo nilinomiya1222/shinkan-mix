@@ -1,0 +1,165 @@
+%header.jumbotron.jumbotron-general
+  .container
+    %h1.jumbotron-h1.jumbo-mypage
+    %p
+      = image_tag 'logo.png', class: 'img-responsive center', alt: '新歓MiX'
+.under-jumbotron
+.container
+  .col-lg-2
+  .col-lg-8.mypage
+    .user-info
+      .title
+        %h3 User Information
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th.key head
+            %th.value content
+        %tbody
+          %tr
+            %td.key nickname
+            %td.value
+              = @user.nickname
+          %tr
+            %td.key email
+            %td.value
+              = @user.email
+          %tr
+            %td.key Password
+            %td.value ********
+      = link_to '編集する', edit_user_registration_path, class: 'btn btn-primary edit-button'
+    - if current_user.owner?
+      - @user.circles.each_with_index do |circle, i|
+        .circle-name
+          %h3
+            = circle.name
+        %ul.nav.nav-tabs.col-xs-12.col-md-11.show-info
+          %li.active
+            = link_to "#circle-info#{i}",  data: { toggle: 'tab' }, aria: { expanded: false} do
+              Circle Information
+          %li
+            = link_to "#express-info#{i}", data: { toggle: 'tab' }, aria: { expanded: false} do
+              Milestone Information
+          %li
+            = link_to "#circle-events#{i}", data: { toggle: 'tab' }, aria: { expanded: false} do
+              Events Information
+        #myTabContent.tab-content.col-xs-11.show-content
+          %div{ class: "tab-pane fade active in", id:"circle-info#{i}"}
+            %table.table.table-striped.table-hover
+              %thead
+                %tr
+                  %th.key head
+                  %th.value content
+              %tbody
+                %tr
+                  %td.key genre
+                  %td.value
+                    %i{ class: "glyphicon glyphicon-#{circle.circle_genre.genre_icon(circle.lg_genre_name)}" }
+                    = circle.circle_genre.name
+                %tr
+                  %td.key name
+                  %td.value
+                    = circle.name
+                %tr
+                  %td.key name(kana)
+                  %td.value
+                    = circle.name_kana
+                %tr
+                  %td.key PR
+                  %td.value
+                    = circle.pr
+                %tr
+                  %td.key
+                    join grades
+                  %td.value
+                    = circle.join_grades + 1
+                    年生まで
+            = link_to '編集する', edit_circle_path(circle), class: 'btn btn-primary edit-button'
+          %div{ class: "tab-pane fade", id:"express-info#{i}"}
+            %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
+            %table.table.table-striped.table-hover
+              %thead
+                %tr
+                  %th.key head
+                  %th.value content
+              %tbody
+                %tr
+                  %td.key campus
+                  %td.value
+                    = circle.campus
+                %tr
+                  %td.key chief
+                  %td.value
+                    = circle.chief
+                %tr
+                  %td.key sub chief
+                  %td.value
+                    = circle.sub_chief
+                %tr
+                  %td.key member
+                  %td.value
+                    = circle.member_male + circle.member_female if circle.member_male
+                    (men:
+                    = circle.member_male
+                    women:
+                    = circle.member_female
+                    )
+                %tr
+                  %td.key since
+                  %td.value
+                    = circle.since
+                %tr
+                  %td.key membership fees
+                  %td.value
+                    入会費:
+                    = circle.entrance_fee
+                    yen 会費:
+                    = circle.annual_fee
+                    yen
+                %tr
+                  %td.key active
+                  %td.value
+                    = circle.active_weeks
+                    ・
+                    = circle.active_times
+                %tr
+                  %td.key place
+                  %td.value
+                    溜まり場:
+                    = circle.hangout
+                    %br
+                    活動場所:
+                    = circle.location
+                %tr
+                  %td.key appeal
+                  %td.value
+                    = circle.appeal
+                %tr
+                  %td.key media
+                  %td.value.media-value
+                    - unless circle.hp.blank?
+                      = link_to image_tag('hp_icon_active.svg', class: 'icon'), circle.hp
+                    - else
+                      = image_tag('hp_icon.svg', class: 'icon')
+                    - unless circle.twitter.blank?
+                      = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}"
+                    - else
+                      = image_tag('t_icon.svg', class: 'icon')
+          %div{ class: "tab-pane fade", id:"circle-events#{i}"}
+            = render partial: 'events/event', collection: circle.events
+            .col-xs-12.bottom-event
+    - else
+      .col-md-6.route
+        .panel.panel-event
+          .panel-body
+            = link_to events_path, class: 'route-btn' do
+              = image_tag('event_btn.png')
+              .event-type.route
+                新歓イベントを探す
+      .col-md-6.route
+        .panel.panel-event
+          .panel-body
+            = link_to circles_path, class: 'route-btn' do
+              = image_tag('circle_btn.png')
+              .event-type.route
+                サークルを探す

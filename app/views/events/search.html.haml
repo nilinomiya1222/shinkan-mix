@@ -1,0 +1,40 @@
+%header.jumbotron.jumbotron-general
+  .container
+    %h1.jumbotron-h1
+    %p
+      .jumbo-title
+        %h1 Events
+        %hr
+        %p.lead.jumbo
+          Briefing Party Performance Activity
+          %br
+          CherryBlossom Camp Watching Others
+.under-jumbotron
+.container.index
+  %h3.title
+    Events Lists
+    %span.circle-num
+      = @events.length
+      events
+  %hr.title
+    .circle-list
+      %h4
+      - @events.each do |event|
+        .col-md-4
+          .panel.panel-primary.panel-event
+            .panel-body
+              %div
+              = link_to image_tag('hanami.png'), event_path(event)
+              .event-type
+                = event.event_type.name
+            .panel-footer
+              .info-content
+                .circle-name
+                  %p
+                    = event.circle.name
+                .bottom-info
+                  .event-data
+                    = event.date.strftime('%b.%d')
+                  .genre
+                    %span.label.label-primary
+                      = event.circle.circle_genre.name

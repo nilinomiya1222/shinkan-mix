@@ -1,0 +1,9 @@
+%p
+  Hello #{@resource.email}!
+%p このアカウントは一定回数ログインに失敗したため、凍結されました。
+%p アカウントを再び有効化するには、以下のリンクをクリックしてください。
+%p= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
+
+%p 新歓MiX 早大マイルストーン編集会 http://e-mile.com
+%p ※このメールへのご返信はご遠慮ください。
+

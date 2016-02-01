@@ -1,0 +1,43 @@
+%header.jumbotron.jumbotron-general
+  .container
+    %h1.jumbotron-h1
+    %p
+      .jumbo-title
+        %h1 Events
+        %hr
+        %p.lead.jumbo
+          Briefing Party Performance Activity
+          %br
+          CherryBlossom Camp Watching Others
+.under-jumbotron
+.container.index
+  %h3.title
+    Event Search
+  %hr.title
+  .search
+    .name-search.col-xs-12
+      %h6 日付から検索
+      .form-horizontal
+        = form_tag('events/search') do
+          .col-xs-9
+            = date_field_tag :search, "", class: 'form-control', name: 'date', placeholder: 'イベント開催日'
+          .col-xs-3
+            = submit_tag 'search', class: 'btn btn-primary'
+    .genre-search.col-xs-12
+      %h6 イベントジャンルで検索
+      - @event_types.each do |eve_type|
+        = link_to event_type_path(id: eve_type.id) do
+          .genre-list.index.col-lg-4.col-sm-6
+            .genre-radio.index-genre-radio
+              %span
+                %i.glyphicon.glyphicon-menu-right
+            .genre-label
+              = eve_type.name
+  .circle-list
+    %h3
+      Events List
+      %span.circle-num
+        = @events.length
+        events
+    %hr
+    = render partial: 'event', collection: @events

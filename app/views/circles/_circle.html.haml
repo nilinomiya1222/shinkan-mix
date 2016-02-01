@@ -1,0 +1,16 @@
+.col-md-4
+  = link_to circle_path(circle), class: 'event' do
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          = circle.name
+      .panel-body
+        = circle.pr
+      .info-content
+        .circle-number
+          No.
+          = circle.id
+        .genre
+          = link_to circle_genre_path(id: circle.circle_genre.id) do
+            %span{class: "label label-#{circle.circle_genre.genre_label(circle.lg_genre_name)}"}
+              = circle.circle_genre.name

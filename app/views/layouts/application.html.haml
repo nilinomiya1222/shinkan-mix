@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title shinkan-mix
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header'
+    - flash.each do |name, msg|
+      - if name == 'error'
+        %div{class: "alert alert-danger", role: 'alert'}
+          = msg
+      - elsif name == 'alert'
+        %div{class: "alert alert-warning", role: 'alert'}
+          = msg
+      - elsif name == 'notice'
+        %div{class: "alert alert-success", role: 'alert'}
+          = msg
+      - else
+        %div{class: "alert alert-#{name}", role: 'alert'}
+          = msg
+    = yield
+    %footer
+      .col-xs-12.credit
+        .col-xs-1
+        .col-xs-10
+          %p.link
+            = link_to image_tag('hp_icon_blue.svg', class: 'icon'), 'http://e-mile.com'
+            = link_to image_tag('t_icon_blue.svg', class: 'icon'), 'http://twitter.com/milestonewaseda'
+          %hr
+          %p.credit-name
+            (C) Milestone Editorial Club 2016

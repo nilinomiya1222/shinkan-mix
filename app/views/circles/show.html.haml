@@ -1,0 +1,119 @@
+%header.jumbotron.jumbotron-show
+  .container
+    %h1.jumbotron-h1.show
+      %h1.icon
+        %i{ class: "glyphicon glyphicon-#{@circle.circle_genre.genre_icon(@circle.lg_genre_name)}" }
+        %span
+          = @circle.circle_genre.name
+      .clearfix
+        %h3.jumbotron-circle-name
+          = @circle.name
+  %hr.hr-circle-name
+.under-jumbotron
+.container
+  .col-lg-2
+  .col-lg-8.mypage
+    .title
+      %h3 Circle Information
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th.key head
+          %th.value content
+      %tbody
+        %tr
+          %td.key genre
+          %td.value
+            %i{ class: "glyphicon glyphicon-#{@circle.circle_genre.genre_icon(@circle.lg_genre_name)}" }
+            = @circle.circle_genre.name
+        %tr
+          %td.key name
+          %td.value
+            = @circle.name
+        %tr
+          %td.key name(kana)
+          %td.value
+            = @circle.name_kana
+        %tr
+          %td.key PR
+          %td.value
+            = @circle.pr
+        %tr
+          %td.key
+            join grades
+          %td.value
+            = @circle.join_grades + 1
+            年生まで
+    %hr.span
+    - if @circle.registered?
+      %h3 Milestone Database
+      %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th.key head
+            %th.value content
+        %tbody
+          %tr
+            %td.key campus
+            %td.value
+              = @circle.campus
+          %tr
+            %td.key chief
+            %td.value
+              = @circle.chief
+          %tr
+            %td.key sub chief
+            %td.value
+              = @circle.sub_chief
+          %tr
+            %td.key member
+            %td.value
+              = @circle.all_member if @circle.registered?
+              (men:
+              = @circle.member_male
+              women:
+              = @circle.member_female
+              )
+          %tr
+            %td.key since
+            %td.value
+              = @circle.since
+          %tr
+            %td.key membership fees
+            %td.value
+              入会費:
+              = @circle.entrance_fee
+              yen 会費:
+              = @circle.annual_fee
+              yen
+          %tr
+            %td.key active
+            %td.value
+              = @circle.active_weeks
+              ・
+              = @circle.active_times
+          %tr
+            %td.key place
+            %td.value
+              溜まり場:
+              = @circle.hangout
+              %br
+              活動場所:
+              = @circle.location
+          %tr
+            %td.key appeal
+            %td.value
+              = @circle.appeal
+          %tr
+            %td.key media
+            %td.value.media-value
+              = link_to image_tag('hp_icon_active.svg', class: 'icon'), @circle.hp
+              = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{@circle.twitter}"
+      %hr.span
+  .col-lg-2
+  .col-lg-12
+    .title
+      %h3 Events List
+    .event-list
+      = render partial: 'events/event', collection: @circle.events

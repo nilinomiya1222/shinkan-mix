@@ -1,0 +1,98 @@
+.container
+  .col-lg-1.col-md-1
+  .col-lg-10.col-md-10
+    = form_for @circle, html: { class: 'form-horizontal' } do |f|
+      %fieldset
+        %legend
+          %h2 Circle Information
+        .col-lg-2.col-md-2
+        .col-lg-8.col-md-8.circle-new
+          .form-group
+            = f.label :circle_genre, class: 'col-lg-2 col-md-2 control-label', for: 'inputGenre'
+            .col-lg-10.col-md-10.col-xs-12
+              .lg-genre-list.col-xs-12
+                %ul.nav.nav-tabs.col-xs-12.col-md-11
+                  %li.lg-genre.active.academic-li
+                    = link_to '#academic',  data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-education
+                  %li.lg-genre
+                    = link_to '#hobby', data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-send
+                  %li.lg-genre
+                    = link_to '#art', data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-picture
+                  %li.lg-genre
+                    = link_to '#music', data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-music
+                  %li.lg-genre
+                    = link_to '#sports', data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-fire
+                  %li.lg-genre
+                    = link_to '#others', data: { toggle: 'tab' }, aria: { expanded: false} do
+                      %i.glyphicon.glyphicon-th-list
+                #myTabContent.tab-content.col-xs-11
+                  .tab-pane.fade.active.in#academic
+                    - @circle_genres.academic.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id , {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+                  .tab-pane.fade#hobby
+                    - @circle_genres.hobby.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id, {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+                  .tab-pane.fade#art
+                    - @circle_genres.art.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id, {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+                  .tab-pane.fade#music
+                    - @circle_genres.music.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id, {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+                  .tab-pane.fade#sports
+                    - @circle_genres.sports.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id, {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+                  .tab-pane.fade#others
+                    - @circle_genres.others.each do |genre|
+                      .genre-list
+                        .genre-radio
+                          = f.radio_button :circle_genre_id, genre.id, {}
+                        .genre-label
+                          = f.label :"#{genre.name}"
+          .form-group
+            = f.label :name, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            .col-lg-10.col-md-10
+              = f.text_field :name, placeholder: 'name', class: 'form-control', id: 'inputName'
+              %span.help-block サークル名を入力してください
+          .form-group
+            = f.label :name_kana, class: 'col-lg-2 col-md-2 control-label', for: 'inputNameKana'
+            .col-lg-10.col-md-10
+              = f.text_field :name_kana, placeholder: 'name(kana)', class: 'form-control', id: 'inputNameKana'
+              %span.help-block サークル名のふりがなを入力してください
+          .form-group
+            = f.label :pr, class: 'col-lg-2 col-md-2 control-label', for: 'inputPR'
+            .col-lg-10.col-md-10
+              = f.text_field :pr, placeholder: 'PR(maximum 25 characters)', class: 'form-control', id: 'inputPR'
+              %span.help-block サークルのPR文を入力してください 字数は最大で25字です
+          .form-group
+            = f.label :join_grades, class: 'col-lg-2 col-md-2 control-label', for: 'inputJoinGrades'
+            .col-lg-10.col-md-10
+              = f.select :join_grades, {'1'=> 0, '1・2'=> 1, '1・2・3'=> 2, '1・２・３・４'=> 3},{}, {class: 'form-control', id: 'inputJoinGrades'}
+              %br/
+          .form-group
+            .col-lg-10.col-lg-offset-2.col-md-10
+              = f.submit 'Update', class: 'btn btn-primary'

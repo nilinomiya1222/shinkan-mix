@@ -1,0 +1,27 @@
+.container
+  .col-lg-3
+  .col-lg-6
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+      %fieldset
+        %legend
+          %h2 Log in
+        .col-lg-1.col-md-1
+        .col-lg-10.col-md-10.circle-new
+          .form-group
+            = f.label :email, class: 'col-lg-4 col-md-4  control-label', for: 'inputEmail'
+            .col-lg-8.col-md-8
+              = f.email_field :email, placeholder: 'email', class: 'form-control', id: 'inputEmail'
+          .form-group
+            = f.label :password, class: 'col-lg-4 col-md-4 control-label', for: 'inputPassword'
+            .col-lg-8.col-md-8
+              = f.password_field :password, placeholder: "password", autocomplete: "off", class: 'form-control', id: 'inputPassword'
+        - if devise_mapping.rememberable?
+          .form-group
+            .col-md-4
+            .checkbox.col-md-4
+              = f.check_box :remember_me, class: 'control-control'
+              = f.label :remember_me, class: 'form-label'
+          .form-group
+            .col-lg-10.col-lg-offset-2.col-md-8
+              = f.submit "Log in", class: 'btn btn-primary'
+      = render "devise/shared/links"

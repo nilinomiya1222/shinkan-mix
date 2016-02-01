@@ -1,0 +1,19 @@
+.col-lg-4.col-md-6.event-thumb
+  = link_to event_path(event), class: 'event' do
+    .panel.panel-primary.panel-event
+      .panel-body
+        %div
+        = image_tag('thumbnail.png')
+        .event-type
+          = event.event_type.name
+      .panel-footer
+        .info-content
+          .circle-name
+            = event.circle.name
+          .bottom-info
+            .event-data
+              = event.date.strftime('%b.%d')
+            .genre
+              = link_to circle_genre_path(id: event.circle.circle_genre.id) do
+                %span{class: "label label-#{event.circle.circle_genre.genre_label(event.circle.lg_genre_name)}"}
+                  = event.circle.circle_genre.name

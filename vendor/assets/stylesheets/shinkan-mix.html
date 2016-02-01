@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost:3000/events# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>shinkan-mix</title>
+    <link rel="stylesheet" media="all" href="./shinkan-mix_files/application.self-9e049073878c39c873ede9bf82691d087adf1fb328ebe5fb16b0818f9890adaf.css" data-turbolinks-track="true">
+    <script src="./shinkan-mix_files/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/circles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+    <script src="./shinkan-mix_files/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js" data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="aGDcTH9iShW7E9Qbv2cXdvediewFGC4IGHeAa40wDBElxb4R6ighVcJYnm5t0LXR78ton+RXLGc+CFTzfeLj+Q==">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./shinkan-mix_files/shinkan-mix.html"><img height="36px" src="./shinkan-mix_files/logo-4cc63a7c1f69f45802fd9b7054e996f72685c4e56b341e0217cd2156c8c451e3.png" alt="Logo 4cc63a7c1f69f45802fd9b7054e996f72685c4e56b341e0217cd2156c8c451e3"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="./shinkan-mix_files/shinkan-mix.html" role="button">
+                About
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a>What's 新歓MiX?</a>
+                </li>
+                <li>
+                  <a href="http://www.e-mile.com/">By マイルストーン編集会</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="./shinkan-mix_files/shinkan-mix.html" role="button">
+                にぃのみや
+                さん
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="http://localhost:3000/users/2">マイページへ</a>
+                </li>
+                <li>
+                  <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">サインアウト</a>
+                </li>
+              </ul>
+            </li>
+            <!-- /.navbar-collapse -->
+          </ul>
+          <!-- /.container-fluid -->
+        </div>
+      </div>
+    </nav>
+    <header class="jumbotron jumbotron-events">
+      <div class="container">
+        <h1 class="jumbotron-h1"></h1>
+        <p>
+          <img class="img-responsive center" alt="新歓MiX" src="./shinkan-mix_files/logo-4cc63a7c1f69f45802fd9b7054e996f72685c4e56b341e0217cd2156c8c451e3.png">
+        </p>
+      </div>
+    </header>
+    <div class="under-jumbotron"></div>
+    <div class="container index">
+      <h2 class="title">
+        Events
+        <span class="circle-num">
+          842 circles
+        </span>
+      </h2>
+      <hr class="title">
+      <div class="search">
+        <div class="name-search col-xs-12">
+          <h6>サークル名で検索</h6>
+          <div class="form-horizontal">
+            <form action="http://localhost:3000/circles/search" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aGDcTH9iShW7E9Qbv2cXdvediewFGC4IGHeAa40wDBElxb4R6ighVcJYnm5t0LXR78ton+RXLGc+CFTzfeLj+Q==">
+                    <div class="col-xs-9">
+                      <input type="text" name="keyword" id="search" value="" class="form-control" placeholder="サークル名">
+                    </div>
+                    <div class="col-xs-3">
+                      <input type="submit" name="commit" value="search" class="btn btn-primary">
+                    </div>
+            </form>
+          </div>
+        </div>
+        <div class="genre-search col-xs-12">
+          <h6>サークルジャンルで検索</h6>
+          <div class="lg-genre-list col-xs-12">
+            <ul class="nav nav-tabs col-xs-12 col-md-11">
+              <li class="lg-genre active academic-li">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#academic"><i class="glyphicon glyphicon-education"></i>
+                </a>
+              </li>
+              <li class="lg-genre">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#hobby"><i class="glyphicon glyphicon-send"></i>
+                </a>
+              </li>
+              <li class="lg-genre">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#art"><i class="glyphicon glyphicon-picture"></i>
+                </a>
+              </li>
+              <li class="lg-genre">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#music"><i class="glyphicon glyphicon-music"></i>
+                </a>
+              </li>
+              <li class="lg-genre">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#sports"><i class="glyphicon glyphicon-fire"></i>
+                </a>
+              </li>
+              <li class="lg-genre">
+                <a data-toggle="tab" aria-expanded="false" href="http://localhost:3000/events#others"><i class="glyphicon glyphicon-th-list"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="circle-list">
+        <h4>
+          Events Lists
+        </h4>
+        <hr>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069" style="
+    max-height: 152px;
+    width: 100%;
+"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img height="152px" width="315px" src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img height="152px" width="315px" src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img height="152px" width="315px" src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img height="152px" width="315px" src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary panel-event">
+            <div class="panel-body">
+              <a href="./shinkan-mix_files/shinkan-mix.html"><img height="152px" width="315px" src="./shinkan-mix_files/hanami-4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069.png" alt="Hanami 4fd1c44d54410138a574e0f2293ec5fc7c88a0d49d1b0abc92e3370615db5069"></a>
+              <ul class="pager">
+                <li>
+                  <a href="./shinkan-mix_files/shinkan-mix.html">説明会
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div class="info-content">
+                <div class="circle-name">
+                  <p>マイルストーン編集会ああああああああ</p>
+                </div>
+                <div class="bottom-info">
+                  <div class="event-data">
+                    Apr.1
+                  </div>
+                  <div class="genre">
+                    <span class="label label-primary">出版</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+  
+
+</body></html>
