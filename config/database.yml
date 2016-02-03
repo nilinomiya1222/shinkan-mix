@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: shinkan-mix_production
-  username: shinkan-mix
-  password: <%= ENV['SHINKAN-MIX_DATABASE_PASSWORD'] %>
+  username: <%= ENV["DB_USER_NAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  socket: /var/run/mysqld/mysqld.sock
