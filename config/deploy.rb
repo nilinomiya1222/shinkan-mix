@@ -42,16 +42,6 @@ set :rbenv_ruby, '2.1.7'
 set :log_level, :debug
 
 namespace :deploy do
-  desc 'Restart application'
-  task :restart do
-    on roles(:app) do
-      if test("[ -f #{fetch(:unicorn_pid)} ]")
-        reload_unicorn
-      else
-        start_unicorn
-      end
-    end
-  end
 
   desc 'Create database'
   task :db_create do
