@@ -8,17 +8,9 @@
   %h2.title
     Circles
     %span.circle-num
-      842 circles
+      = @circles.length
+      circles
   %hr.title
-  .search
-    .name-search.col-xs-12
-      %h6 サークル名で検索
-      .form-horizontal
-        = form_tag('/search') do
-          .col-xs-9
-            = text_field_tag :search, "", class: 'form-control', name: 'keyword', placeholder: 'サークル名'
-          .col-xs-3
-            = submit_tag 'search', class: 'btn btn-primary'
   .circle-list
     %h3 Results
     = render partial: 'circle', collection: @circles
