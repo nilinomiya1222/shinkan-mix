@@ -23,6 +23,6 @@ module ShinkanMix
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
-    config.assets.precompile += [/^[a-z0-9]\w+.(css|js|woff|eot|svg|ttf)$/]
+    config.assets.precompile += [/^[a-z0-9]\w+.(scss|css|js|woff|eot|svg|ttf)$/]
   end
 end
