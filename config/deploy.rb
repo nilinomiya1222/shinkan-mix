@@ -3,6 +3,7 @@ lock '3.4.0'
 
 set :application, 'shinkan-mix'
 set :repo_url, 'git@github.com:nilinomiya1222/shinkan-mix.git'
+set :bundle_gemfile,  "current/Gemfile"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
