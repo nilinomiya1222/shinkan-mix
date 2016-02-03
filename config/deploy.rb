@@ -41,8 +41,8 @@ set :rbenv_ruby, '2.1.7'
 # Log
 set :log_level, :debug
 
-#unicornのpidファイル、設定ファイルのディレクトリを指定
-namespace :unicorn do
+namespace :deploy do
+
   desc 'Create database'
   task :db_create do
     on roles(:db) do |host|
@@ -71,6 +71,9 @@ namespace :unicorn do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
     end
   end
+end
+#unicornのpidファイル、設定ファイルのディレクトリを指定
+namespace :unicorn do
   task :environment do
     set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
     set :unicorn_config, "#{current_path}/config/unicorn/production.rb"
