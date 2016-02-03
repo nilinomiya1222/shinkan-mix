@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'shinkan-mix'
 set :repo_url, 'git@github.com:nilinomiya1222/shinkan-mix.git'
-set :bundle_gemfile,  "current/Gemfile"
+set :bundle_gemfile,  "Gemfile"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 5
 
 # Ruby version by rbenv
-set :rbenv_ruby
+set :rbenv_ruby, '2.1.7'
 
 # Log
 set :log_level, :debug
