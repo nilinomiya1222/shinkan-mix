@@ -29,16 +29,4 @@
       - if @genre.type == 'EventType'
         = render partial: 'events/event', collection: @contents
       - else
-        .col-md-4
-          .panel.panel-primary
-            .panel-heading
-              %h3.panel-title
-                マイルストーン編集会
-            .panel-body
-              この雑誌作ってます
-            .info-content
-              .circle-number
-                No.1
-              .genre
-                = link_to '#' do
-                  %span.label.label-primary 出版
+        = render parital: 'circles/circle', collection: @contents
