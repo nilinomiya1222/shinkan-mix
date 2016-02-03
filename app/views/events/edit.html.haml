@@ -17,8 +17,9 @@
           .form-group
             = f.label :date, class: 'col-lg-2 col-md-2 date-label', for: 'inputDate'
             .col-lg-10.col-md-10
-              = f.text_field :date, class: 'form-control'
-              %span.help-block 日付を入力してください(登録可能期間
+              = f.date_field :date, class: 'form-control'
+              %span.help-block
+                日付を入力してください(登録可能期間
                 = EventTerm.in_term.start_date.to_s + '〜' + EventTerm.in_term.finish_date.to_s
                 )
           .form-group
