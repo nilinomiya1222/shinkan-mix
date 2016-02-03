@@ -55,7 +55,8 @@ server 'shinkan-mix.com',
   ssh_options: {
 #     user: 'user_name', # overrides user setting above
     keys: %w(~/.ssh/id_rsa),
+    port: "61109"
 #     forward_agent: false,
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
-#   }
+   }
