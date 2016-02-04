@@ -86,8 +86,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => "#{ENV["MAILER_USER_NAME"]}",
-    :password => "#{ENV["MAILER_PASSWORD"]}",
+    :user_name => "#{Settings.devise.mailer.username}",
+    :password => "#{Settings.devise.mailer.password}",
     :authentication => 'login',
   }
 end
