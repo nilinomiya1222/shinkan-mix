@@ -1012,6 +1012,9 @@ hr.hr-circle-name {
 }
 
 @media (max-width: 457px){
+  h3.jumbotron-circle-name {
+    margin-top: 30px;
+  }
   .genre-label {
     word-wrap: break-word;
     max-width: 150px;
