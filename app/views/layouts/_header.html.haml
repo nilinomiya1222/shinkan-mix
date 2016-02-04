@@ -37,7 +37,7 @@
               %li
                 = link_to 'マイページへ', user_path(current_user)
               %li
-                = link_to 'サインアウト', destroy_user_session_path, method: :delete
+                = link_to 'サインアウト', destroy_user_session_path
           - if current_user.owner?
             %li.button
               = link_to 'イベント登録', new_event_path, class: 'btn btn-primary'
