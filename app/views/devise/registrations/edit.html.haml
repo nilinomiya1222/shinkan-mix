@@ -40,7 +40,7 @@
         Unhappy?
       .col-lg-2
       .col-lg-8
-        = link_to "アカウントを削除する", registration_path(resource_name), class: 'btn btn-primary' , data: { confirm: "本当によろしいですか？(サークル情報は削除されません。)" }, method: :delete
+        = link_to "削除する", registration_path(resource_name), method: :delete, class: 'btn btn-primary' , data: { confirm: "本当によろしいですか？(サークル情報は削除されません。)" }, method: :delete
       .col-lg-2
       .back.col-lg-12
         = link_to :back do

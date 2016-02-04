@@ -1099,6 +1099,7 @@ hr.title {
 .circle-list {
   h3.list-title {
     margin-top: 60px;
+    padding-left: 15px;
   }
 }
 #error-explanation {
@@ -1153,4 +1154,7 @@ footer {
 }
 .event-edit {
   width: 80%;
+}
+.row {
+  width: 100%;
 }
