@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'shinkan-mix', port: 80 }
+  config.action_mailer.default_url_options = { host: 'shinkan-mix.com', port: 80 }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
