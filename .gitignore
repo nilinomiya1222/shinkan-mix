@@ -17,6 +17,6 @@
 
 config/settings.local.yml
 config/settings/*.local.yml
-config/settings/development.yml
+config/settings/*
 config/environments/*.local.yml
 vendor/bundle
