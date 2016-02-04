@@ -62,8 +62,9 @@
           %td.key イベント内容
           %td.value
             = @event.appeal
-    - if current_user.id == @event.circle.user_id
-      = link_to 'Edit', edit_event_path(id: @event.id), class: 'btn btn-primary event-edit'
+    - if user_signed_in?
+      - if current_user.id == @event.circle.user_id
+        = link_to 'Edit', edit_event_path(id: @event.id), class: 'btn btn-primary event-edit'
     %hr.span
   .col-lg-2
   .col-lg-12
