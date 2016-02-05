@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
   def create
-    binding.pry
     if current_user.owner?
       @event = Event.new(event_params)
       if @event.save
@@ -70,7 +69,7 @@ class EventsController < ApplicationController
     @event_types = EventType.all
   end
   def user_has_circle?
-    if user_registered_circle?(current_user)
+    if current_user.circles.blank?
       redirect_to new_circle_path
     end
   end
