@@ -45,7 +45,7 @@
             = @circle.join_grades + 1
             年生まで
     %hr.span
-    - if @circle.registered?
+    - if @circle.published?
       %h3 Milestone Database
       %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
       %table.table.table-striped.table-hover
@@ -69,7 +69,7 @@
           %tr
             %td.key member
             %td.value
-              = @circle.all_member if @circle.registered?
+              = @circle.all_member if @circle.published?
               (men:
               = @circle.member_male
               women:
