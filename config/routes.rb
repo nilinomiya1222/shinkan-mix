@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :circles, only: [:index, :show,:new, :create, :edit, :update] do
     collection do
       post 'search'
+      post 'publish'
     end
   end
   resources :circle_genres, controller: :genres, type: 'CircleGenre'
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
   resources :events do
     collection do
       post 'search'
-      post 'search_type'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
