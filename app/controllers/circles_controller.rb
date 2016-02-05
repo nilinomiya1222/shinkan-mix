@@ -1,8 +1,8 @@
 class CirclesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
-  before_action :circle_owner?, only: [:new, :create, :edit, :update]
-  before_action :owner_registered_circle?, only: [:edit, :update]
-  before_action :set_circle, only: [:show, :edit, :update]
+  before_action :circle_owner?, only: [:new, :create, :edit, :update, :publish]
+  before_action :owner_registered_circle?, only: [:edit, :update, :publish]
+  before_action :set_circle, only: [:show, :edit, :update, :publish]
   before_action :set_genres
 
   def index
@@ -41,6 +41,18 @@ class CirclesController < ApplicationController
       else
         render :edit, danger: 'サークル情報の更新に失敗しました'
       end
+    end
+  end
+
+  def publish
+    if @circle.published?
+      @circle.closed!
+      redirect_to circle_path(@circle)
+      flash[:success] = 'サークル情報を非公開にしました。'
+    else
+      @circle.published!
+      redirect_to circle_path(@circle)
+      flash[:success] = 'サークル情報を公開しました。'
     end
   end
 
