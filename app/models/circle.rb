@@ -9,7 +9,7 @@ class Circle < ActiveRecord::Base
   has_many :appeals, through: :circle_points
 
   #enum
-  enum status: %i(unregistered registered)
+  enum status: %i(closed published)
 
   #validatrion
   validates :name, presence: true
