@@ -29,7 +29,11 @@
             = f.label :password_confirmation, class: 'col-lg-4 col-md-4 control-label password-confirmation', for: 'inputPasswordConfirmation'
             .col-lg-8.col-md-8
               = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "off", class: 'form-control', id: 'inputPasswordConfirmation'
-              %span.hrml-block 確認のためパスワードを入力してださい。
+          .form-group
+            = f.label :current_password, class: 'col-lg-4 col-md-4 control-label', for: 'inputPassword'
+            .col-lg-8.col-md-8
+              = f.password_field :current_password, placeholder: "current password", autocomplete: "off", class: 'form-control', id: 'inputPassword'
+              %span.help-block 変更を確定するには現在のパスワードを入力してください
           .form-group
             .col-lg-12.btn-update
               = f.submit 'Update', class: 'btn btn-primary'
