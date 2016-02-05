@@ -71,4 +71,4 @@
     .title
       %h3 Presented by
     .col-md-4
-    = render partial: 'circles/circle', collection: @event.circle
+    = render partial: 'circles/circle', locals: { circle: @event.circle }
