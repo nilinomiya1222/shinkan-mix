@@ -13,7 +13,7 @@ class CirclesController < ApplicationController
   end
 
   def new
-    if user_registered_circle?(current_user)
+    if current_user.circles.blank?
       flash[:warning] = 'サークル情報を登録してください'
     end
     @circle = Circle.new
