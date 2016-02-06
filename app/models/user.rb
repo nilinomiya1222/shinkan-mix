@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #association
   has_many :circles
+  has_many :likes
 
   #enum
   enum status: %i(general owner admin)

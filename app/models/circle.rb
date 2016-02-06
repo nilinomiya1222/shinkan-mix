@@ -7,6 +7,7 @@ class Circle < ActiveRecord::Base
   has_many :circle_points
   has_many :rules, through: :circle_points
   has_many :appeals, through: :circle_points
+  has_many :likes
 
   #enum
   enum status: %i(closed published)
