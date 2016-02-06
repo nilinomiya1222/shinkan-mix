@@ -6,7 +6,6 @@ set :repo_url, 'git@github.com:nilinomiya1222/shinkan-mix.git'
 set :bundle_gemfile,  "Gemfile"
 
 # Default branch is :master
-set :branch, ENV["BRANCH_NAME"]
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
