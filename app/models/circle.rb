@@ -32,4 +32,8 @@ class Circle < ActiveRecord::Base
     circle_genre.lg_genre.name
   end
 
+  def like_blank?(current_user)
+    likes.find_by(user_id: current_user.id).blank? unless current_user.blank?
+  end
+
 end
