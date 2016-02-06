@@ -17,19 +17,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def register_express_circle
-    circle = Circle.where(email: current_user.email)
-    circle.update(circle.length, user_id: current_user.id)
-  end
-
-  def user_registered_express?
-    if user_signed_in?
-      if current_user.circles.blank? && Circle.where(email: current_user.email).present?
-        register_express_circle
-      end
-    end
-  end
-
   def set_status
     @status = params[:status].to_i
   end
