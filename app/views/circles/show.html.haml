@@ -128,4 +128,4 @@
     .title
       %h3 Events List
     .event-list
-      = render partial: 'events/event', collection: @circle.events
+      = render partial: 'events/event', collection: @circle.events.order("date ASC")

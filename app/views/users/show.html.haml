@@ -168,7 +168,7 @@
                     - else
                       = image_tag('t_icon.svg', class: 'icon')
           %div{ class: "tab-pane fade", id:"circle-events#{i}"}
-            = render partial: 'events/event', collection: circle.events
+            = render partial: 'events/event', collection: circle.events.order("date ASC")
             .col-xs-12.bottom-event
     - else
       .col-md-6.route

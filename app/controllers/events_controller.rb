@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :registerable_term?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.order('date ASC')
   end
   def show
   end
