@@ -11,6 +11,12 @@ class Circle < ActiveRecord::Base
   #enum
   enum status: %i(closed published)
 
+  #validatrion
+  validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :circle_genre_id, presence: true
+  validates :join_grades, presence: true
+  validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
 
   #scope
     #for search

@@ -13,7 +13,6 @@
 .container
   .col-lg-2
   .col-lg-8.mypage
-    .col-xs-12
     .title
       %h3 Circle Information
     %table.table.table-striped.table-hover
@@ -45,15 +44,8 @@
           %td.value
             = @circle.join_grades + 1
             年生まで
-    .col-xs-3
-    .col-xs-6#fav-btn
-      = button_tag class: 'btn btn-default' do
-        = link_to image_tag('fav_yellow.svg'), '#'
-        Like
-        %span#favs_count
-          = 0
-    .col-xs-3.after-fav
-    - unless @circle.campus.nil?
+    %hr.span
+    - if @circle.published?
       %h3 Milestone Database
       %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
       %table.table.table-striped.table-hover
@@ -136,4 +128,4 @@
     .title
       %h3 Events List
     .event-list
-      = render partial: 'events/event', collection: @circle.events
+      = render partial: 'events/event', collection: @circle.events.order("date ASC")

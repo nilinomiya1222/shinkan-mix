@@ -4,7 +4,7 @@ class GenresController < ApplicationController
     if type == 'CircleGenre'
       @contents = @genre.circle
     else
-      @contents = @genre.events
+      @contents = @genre.events.order("date ASC")
     end
   end
 
