@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201012559) do
+ActiveRecord::Schema.define(version: 20160205142826) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160201012559) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "circle_genre_id", limit: 4
+    t.string   "booth",           limit: 255
   end
 
   create_table "event_terms", force: :cascade do |t|
@@ -79,7 +80,6 @@ ActiveRecord::Schema.define(version: 20160201012559) do
     t.date     "date"
     t.string   "meeting_place", limit: 255
     t.datetime "meeting_time"
-    t.integer  "join_grade",    limit: 4
     t.integer  "fee",           limit: 4
     t.string   "place",         limit: 255
     t.text     "appeal",        limit: 65535

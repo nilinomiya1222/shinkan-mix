@@ -82,6 +82,7 @@ class CirclesController < ApplicationController
   end
 
   def circle_params
-    params.require(:circle).permit(:name, :name_kana, :pr, :join_grades, :circle_genre_id).merge(email: current_user.email)
+    params.require(:circle).permit(:name, :name_kana, :pr, :join_grades, :circle_genre_id, :booth).merge(email: current_user.email)
+  end
   end
 end
