@@ -40,7 +40,7 @@
                 = link_to 'サインアウト', destroy_user_session_path, method: :delete
           - if current_user.owner?
             %li.button
-              - if current_user.circles.exitsts?
+              - unless current_user.circles[0].blank?
                 = link_to 'イベント登録', new_event_path, class: 'btn btn-primary'
               - else
                 = link_to 'サークル登録', new_circle_path, class: 'btn btn-primary'
