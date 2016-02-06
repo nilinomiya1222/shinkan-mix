@@ -92,6 +92,11 @@
             = f.label :join_grades, class: 'col-lg-2 col-md-2 control-label', for: 'inputJoinGrades'
             .col-lg-10.col-md-10
               = f.select :join_grades, {'1'=> 0, '1・2'=> 1, '1・2・3'=> 2, '1・２・３・４'=> 3},{}, {class: 'form-control', id: 'inputJoinGrades'}
+          .form-group
+            = f.label :booth, class: 'col-lg-2 col-md-2 control-label', for: 'inputBooth'
+            .col-lg-10.col-md-10
+              = f.text_field :booth, placeholder: 'ブース', class: 'form-control', id: 'inputBooth'
+              %span.help-block ブースの場所を入力してください(任意)
               %br/
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-10

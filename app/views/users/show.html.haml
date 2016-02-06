@@ -74,6 +74,11 @@
                   %td.value
                     = circle.join_grades + 1
                     年生まで
+                %tr
+                  %td.key
+                    ブース設置場所
+                  %td.value
+                    = circle.booth
             = link_to '編集する', edit_circle_path(circle), class: 'btn btn-primary edit-button'
           %div{ class: "tab-pane fade", id:"express-info#{i}"}
             %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
