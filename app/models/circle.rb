@@ -26,7 +26,7 @@ class Circle < ActiveRecord::Base
       scope :major_like, -> all_member { where("all_member > 100") if name.present? }
 
   def all_member
-    member_male + member_female
+    member_male.to_i + member_female.to_i
   end
 
   def lg_genre_name
