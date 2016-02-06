@@ -102,6 +102,18 @@
               活動場所:
               = @circle.location
           %tr
+            %td.key 会則
+            %td.value
+              - @circle.rules.each do |r|
+                = r.name
+                %br
+          %tr
+            %td.key アピールポイント
+            %td.value
+              - @circle.appeals.each do |ap|
+                = ap.name
+                %br
+          %tr
             %td.key appeal
             %td.value
               = @circle.appeal
