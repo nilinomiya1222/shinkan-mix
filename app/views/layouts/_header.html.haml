@@ -38,9 +38,21 @@
                 = link_to 'マイページへ', user_path(current_user)
               %li
                 = link_to 'サインアウト', destroy_user_session_path, method: :delete
+          - if current_user.owner?
+            %li.button
+              - if current_user.circles.exitsts?
+                = link_to 'イベント登録', new_event_path, class: 'btn btn-primary'
+              - else
+                = link_to 'サークル登録', new_circle_path, class: 'btn btn-primary'
         - else
           %li
             = link_to 'ログイン', new_user_session_path
-          %li
-            = link_to '新規登録', new_user_registration_path
-
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              新規登録
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                = link_to 'サークル様はこちら', new_user_registration_path(status: 1)
+              %li
+                = link_to '新入生の方はこちら', new_user_registration_path(status: 0)
