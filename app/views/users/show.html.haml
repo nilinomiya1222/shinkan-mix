@@ -185,3 +185,25 @@
               = image_tag('circle_btn.png')
               .event-type.route
                 サークルを探す
+      .col-md-12.fav-circle
+        .title
+          %h3 My Favorite Circle
+        - current_user.likes.each do |like|
+          .col-md-2
+          .col-md-8
+            = link_to circle_path(like.circle), class: 'event' do
+              .panel.panel-primary
+                .panel-heading
+                  %h3.panel-title
+                    = like.circle.name
+                .panel-body
+                  = like.circle.pr
+                .info-content
+                  .circle-number
+                    No.
+                    = like.circle.id
+                  .genre
+                    = link_to circle_genre_path(id: like.circle.circle_genre.id) do
+                      %span{class: "label label-#{like.circle.circle_genre.genre_label(like.circle.lg_genre_name)}"}
+                        = like.circle.circle_genre.name
+          .col-md-2
