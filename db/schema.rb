@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205142826) do
+ActiveRecord::Schema.define(version: 20160206035803) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160205142826) do
     t.string   "chief",           limit: 255
     t.string   "chief_kana",      limit: 255
     t.string   "sub_chief",       limit: 255
-    t.integer  "member_male",     limit: 4
-    t.integer  "member_female",   limit: 4
+    t.string   "member_male",     limit: 255,   default: "0", null: false
+    t.string   "member_female",   limit: 255,   default: "0", null: false
     t.integer  "since",           limit: 4
     t.integer  "entrance_fee",    limit: 4
     t.integer  "annual_fee",      limit: 4
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160205142826) do
     t.string   "hp",              limit: 255
     t.string   "twitter",         limit: 255
     t.string   "facebook",        limit: 255
-    t.integer  "status",          limit: 4,     default: 0, null: false
+    t.integer  "status",          limit: 4,     default: 0,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "circle_genre_id", limit: 4
