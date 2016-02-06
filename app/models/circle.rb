@@ -11,19 +11,11 @@ class Circle < ActiveRecord::Base
   #enum
   enum status: %i(closed published)
 
-  #validatrion
-  validates :name, presence: true
-  validates :name_kana, presence: true
-  validates :circle_genre_id, presence: true
-  validates :join_grades, presence: true
-  validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
-
 
   #scope
     #for search
       scope :name_like, -> name { where('name like ?', "%#{name}%") if name.present? }
       scope :genre_like, -> all_member { where("all_member > 100") if name.present? }
-      scope :major_like, -> all_member { where("all_member > 100") if name.present? }
 
   def all_member
     member_male.to_i + member_female.to_i

@@ -45,7 +45,7 @@
             = @circle.join_grades + 1
             年生まで
     %hr.span
-    - if @circle.published?
+    - unless @circle.campus.nil?
       %h3 Milestone Database
       %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
       %table.table.table-striped.table-hover
