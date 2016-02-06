@@ -55,7 +55,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:date, :meeting_place, :meeting_time, :fee, :place, :appeal, :circle_id, :event_type_id)
+    params.require(:event).permit(:date, :meeting_place, :meeting_time, :fee, :place, :appeal, :circle_id, :event_type_id).merge(event_term_id: EventTerm.in_term.id)
   end
   def circle_owner?
   unless current_user.owner?
