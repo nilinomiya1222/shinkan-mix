@@ -10,7 +10,7 @@ class Circle < ActiveRecord::Base
   has_many :likes
 
   #enum
-  enum status: %i(closed published)
+  enum status: %i(closed registered published)
 
   #validatrion
   validates :name, presence: true
