@@ -7,7 +7,7 @@ class CirclesController < ApplicationController
   before_action :set_genres
 
   def index
-    @circles = Circle.where(status: 1)
+    @circles = Circle.where.not(status: 0)
   end
 
   def show
@@ -47,7 +47,7 @@ class CirclesController < ApplicationController
 
   def publish
     if @circle.published?
-      @circle.closed!
+      @circle.registered!
       redirect_to circle_path(@circle)
       flash[:success] = 'サークル情報を非公開にしました。'
     else
