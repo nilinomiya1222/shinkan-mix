@@ -1005,6 +1005,7 @@ hr.hr-circle-name {
     }
     h1.icon {
       margin-top: -35px;
+      font-size: 30px;
     }
   }
   h1.jumbotron-h1 {
@@ -1055,7 +1056,9 @@ h2.title {
     text-align: center;
   }
 }
-
+h3.title {
+  padding-left: 15px;
+}
 h3.panel-title {
   font-size: 20px !important;
   font-weight: bold;
