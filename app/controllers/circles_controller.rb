@@ -3,7 +3,7 @@ class CirclesController < ApplicationController
   before_action :circle_owner?, only: [:new, :create, :edit, :update, :publish]
   before_action :owner_registered_circle?, only: [:edit, :update, :publish]
   before_action :set_circle, only: [:show, :edit, :update, :publish]
-  before_action :circle_published?, only: :show
+  before_action :circle_registered?, only: :show
   before_action :set_genres
 
   def index
@@ -87,8 +87,8 @@ class CirclesController < ApplicationController
     params.require(:circle).permit(:name, :name_kana, :pr, :join_grades, :circle_genre_id, :booth).merge(email: current_user.email)
   end
 
-  def circle_published?
-    unless @circle.published?
+  def circle_registered?
+    if @circle.closed?
       redirect_to :root
       return
     end
