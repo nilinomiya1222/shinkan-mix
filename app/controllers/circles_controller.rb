@@ -49,11 +49,11 @@ class CirclesController < ApplicationController
     if @circle.published?
       @circle.registered!
       redirect_to circle_path(@circle)
-      flash[:success] = 'サークル情報を非公開にしました。'
+      flash[:success] = 'Milestone Express掲載情報を非公開にしました。'
     else
       @circle.published!
       redirect_to circle_path(@circle)
-      flash[:success] = 'サークル情報を公開しました。'
+      flash[:success] = 'Milestone Express掲載情報を公開しました。'
     end
   end
 
