@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160207144002) do
     t.string   "hp",              limit: 255
     t.string   "twitter",         limit: 255
     t.string   "facebook",        limit: 255
-    t.string   "status",          limit: 255,   default: "1", null: false
+    t.integer  "status",          limit: 4,     default: 1,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "circle_genre_id", limit: 4
