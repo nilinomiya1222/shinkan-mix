@@ -224,11 +224,10 @@ a {
 
 // Tables =====================================================================
 
-.table-hover {
+.table {
   > tbody > tr,
   > tbody > tr > th,
   > tbody > tr > td {
-    @include transition(all 0.2s);
     text-align: center;
     margin: 20px 0 60px;
   }
@@ -252,6 +251,9 @@ a {
 img.icon {
   height: 60px;
   margin: 0 20px;
+}
+table.table-tab {
+  margin-top: 30px;
 }
 
 // Forms ======================================================================

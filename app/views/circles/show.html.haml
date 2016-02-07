@@ -15,23 +15,23 @@
   .col-lg-8.mypage
     .title
       %h3 Circle Information
-    %table.table.table-striped.table-hover
+    %table.table
       %thead
         %tr
-          %th.key head
-          %th.value content
+          %th.key
+          %th.value
       %tbody
         %tr
-          %td.key genre
+          %td.key ジャンル
           %td.value
             %i{ class: "glyphicon glyphicon-#{@circle.circle_genre.genre_icon(@circle.lg_genre_name)}" }
             = @circle.circle_genre.name
         %tr
-          %td.key name
+          %td.key 名前
           %td.value
             = @circle.name
         %tr
-          %td.key name(kana)
+          %td.key 名前(かな)
           %td.value
             = @circle.name_kana
         %tr
@@ -40,7 +40,7 @@
             = @circle.pr
         %tr
           %td.key
-            join grades
+            加入可能学年
           %td.value
             = @circle.join_grades + 1
             年生まで
@@ -51,26 +51,26 @@
     - if @circle.published?
       %h3 Milestone Database
       %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
-      %table.table.table-striped.table-hover
+      %table.table
         %thead
           %tr
-            %th.key head
-            %th.value content
+            %th.key
+            %th.value
         %tbody
           %tr
-            %td.key campus
+            %td.key キャンパス
             %td.value
               = @circle.campus
           %tr
-            %td.key chief
+            %td.key 代表者
             %td.value
               = @circle.chief
           %tr
-            %td.key sub chief
+            %td.key 副代表者
             %td.value
               = @circle.sub_chief
           %tr
-            %td.key member
+            %td.key 人数
             %td.value
               = @circle.all_member if @circle.published?
               (men:
@@ -79,25 +79,25 @@
               = @circle.member_female
               )
           %tr
-            %td.key since
+            %td.key 創立
             %td.value
               = @circle.since
           %tr
-            %td.key membership fees
+            %td.key 会費
             %td.value
               入会費:
               = @circle.entrance_fee
-              yen 会費:
+              yen 年会費:
               = @circle.annual_fee
               yen
           %tr
-            %td.key active
+            %td.key 活動
             %td.value
               = @circle.active_weeks
               ・
               = @circle.active_times
           %tr
-            %td.key place
+            %td.key 場所
             %td.value
               溜まり場:
               = @circle.hangout
@@ -117,11 +117,11 @@
                 = ap.name
                 %br
           %tr
-            %td.key appeal
+            %td.key アピール
             %td.value
               = @circle.appeal
           %tr
-            %td.key media
+            %td.key メディア
             %td.value.media-value
               = link_to image_tag('hp_icon_active.svg', class: 'icon'), @circle.hp
               = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{@circle.twitter}"
