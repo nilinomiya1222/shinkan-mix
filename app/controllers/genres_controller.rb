@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   def show
     @genre = genre_class.find(params[:id])
     if type == 'CircleGenre'
-      @contents = @genre.circle.registered
+      @contents = @genre.circle.where.not(status: "closed")
     else
       @contents = @genre.events.order("date ASC")
     end
