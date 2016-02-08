@@ -883,7 +883,7 @@ a.navbar-brand {
   }
 
   .label {
-    padding: 4px 25px;
+    padding: 4px 14px;
     float: right;
     a {
       color: #fff;
@@ -973,10 +973,13 @@ h1.jumbotron-h1.jumbo-mypage {
 }
 
 h1.icon {
+  width: 100%;
+  height: 128px;
   float: left;
   margin-top: -50px;
-  font-size: 56px;
+  font-size: 39px;
   color: #fff;
+  opacity: 0.7;
 }
 
 .clearfix:after {
@@ -988,7 +991,8 @@ h1.icon {
 .jumbotron-circle-name {
   float: right;
   color: #fff !important;
-  margin-top: 80px;
+  margin-top: 20px;
+  margin-bottom: 0px;
   text-align: right;
   padding-right: 1px;
 }
@@ -1009,7 +1013,8 @@ hr.hr-circle-name {
     }
     h1.icon {
       margin-top: -35px;
-      font-size: 30px;
+      font-size: 28px;
+      height: 100px;
     }
   }
   h1.jumbotron-h1 {
@@ -1020,7 +1025,10 @@ hr.hr-circle-name {
   .jumbotron-circle-name {
   font-size: 20px;
   float: right;
-  margin: 60px 0 0 0;
+  margin: 0;
+  }
+  h1.jumbotron-h1.show {
+    margin-top: 30px;
   }
   p.lead.jumbo {
     font-size: 12px;
@@ -1033,11 +1041,6 @@ hr.hr-circle-name {
 }
 
 @media (max-width: 457px){
-  .jumbotron-circle-name {
-  font-size: 20px;
-  float: right;
-  margin: 30px 0 0 0;
-  }
   .genre-label {
     word-wrap: break-word;
     max-width: 150px;
