@@ -82,11 +82,11 @@
             = link_to '編集する', edit_circle_path(circle), class: 'btn btn-primary edit-button'
           %div{ class: "tab-pane fade", id:"express-info#{i}"}
             %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
-
-            - if circle.published?
-              = link_to '非公開にする', publish_circles_path(id: circle.id), method: :post ,class: 'btn btn-default'
-            - else
-              = link_to '公開する', publish_circles_path(id: circle.id), method: :post, class: 'btn btn-primary'
+            - unless circle.chief.nil?
+              - if circle.published?
+                = link_to '非公開にする', publish_circles_path(id: circle.id), method: :post ,class: 'btn btn-default'
+              - else
+                = link_to '公開する', publish_circles_path(id: circle.id), method: :post, class: 'btn btn-primary'
             %table.table
               %thead
                 %tr
