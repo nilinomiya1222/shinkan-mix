@@ -8,7 +8,7 @@
         .col-lg-2.col-md-2
         .col-lg-8.col-md-8.circle-new
           .form-group
-            = f.label :circle_genre, class: 'col-lg-2 col-md-2 control-label', for: 'inputGenre'
+            = f.label :ジャンル, class: 'col-lg-2 col-md-2 control-label', for: 'inputGenre'
             .col-lg-10.col-md-10.col-xs-12
               .lg-genre-list.col-xs-12
                 %ul.nav.nav-tabs.col-xs-12.col-md-11
@@ -74,29 +74,71 @@
                         .genre-label
                           = f.label :"#{genre.name}"
           .form-group
-            = f.label :name, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :名前, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
-              = f.text_field :name, placeholder: 'name', class: 'form-control', id: 'inputName'
+              = f.text_field :name, placeholder: 'マイルストーン編集会', class: 'form-control', id: 'inputName'
               %span.help-block サークル名を入力してください
           .form-group
-            = f.label :name_kana, class: 'col-lg-2 col-md-2 control-label', for: 'inputNameKana'
+            = f.label :かな, class: 'col-lg-2 col-md-2 control-label', for: 'inputNameKana'
             .col-lg-10.col-md-10
-              = f.text_field :name_kana, placeholder: 'name(kana)', class: 'form-control', id: 'inputNameKana'
+              = f.text_field :name_kana, placeholder: 'まいるすとおんへんしゅうかい', class: 'form-control', id: 'inputNameKana'
               %span.help-block サークル名のふりがなを入力してください
           .form-group
-            = f.label :pr, class: 'col-lg-2 col-md-2 control-label', for: 'inputPR'
+            = f.label :キャンパス, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputCampus'
             .col-lg-10.col-md-10
-              = f.text_field :pr, placeholder: 'PR(maximum 25 characters)', class: 'form-control', id: 'inputPR'
+              = f.radio_button :campus, '早稲田' , id: 'inputCampus'
+              = f.label :早稲田
+              %br
+              = f.radio_button :campus, '西早稲田' , id: 'inputCampus'
+              = f.label :西早稲田
+              %br
+              = f.radio_button :campus, '所沢' , id: 'inputCampus'
+              = f.label :所沢
+          .form-group
+            = f.label :新歓用email, class: 'col-lg-2 col-md-2 control-label', for: 'inputShinkanEmail'
+            .col-lg-10.col-md-10
+              = f.text_field :show_email, placeholder: 'info@e-mile.com', class: 'form-control', id: 'inputShinkanEmail'
+              %span.help-block 新歓MiX本誌に掲載するメールアドレスを入力してください。本アプリ上では掲載いたしません。
+          .form-group
+            = f.label :電話番号, class: 'col-lg-2 col-md-2 control-label', for: 'inputPhone'
+            .col-lg-10.col-md-10
+              = f.text_field :phone, placeholder: '090-1234-5678', class: 'form-control', id: 'inputPhone'
+              %span.help-block ご連絡のつく電話番号をハイフンつきで入力してください。当会からの連絡にも使用するので、必ず記入してください。
+          .form-group
+            = f.label :電話番号掲載, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputTellPossible'
+            .col-lg-10.col-md-10
+              = f.radio_button :phone_possible, true, id: 'inputTellPossible'
+              = f.label :可
+            .col-lg-10.col-md-10
+              = f.radio_button :phone_possible, false , id: 'inputTellPossible'
+              = f.label :否
+          .form-group
+            = f.label :PR, class: 'col-lg-2 col-md-2 control-label', for: 'inputPR'
+            .col-lg-10.col-md-10
+              = f.text_field :pr, placeholder: '最大25文字', class: 'form-control', id: 'inputPR'
               %span.help-block サークルのPR文を入力してください 字数は最大で25字です
           .form-group
-            = f.label :join_grades, class: 'col-lg-2 col-md-2 control-label', for: 'inputJoinGrades'
+            = f.label :加入学年, class: 'col-lg-2 col-md-2 control-label', for: 'inputJoinGrades'
             .col-lg-10.col-md-10
               = f.select :join_grades, {'1'=> 0, '1・2'=> 1, '1・2・3'=> 2, '1・２・３・４'=> 3},{}, {class: 'form-control', id: 'inputJoinGrades'}
           .form-group
-            = f.label :booth, class: 'col-lg-2 col-md-2 control-label', for: 'inputBooth'
+            = f.label :ブース, class: 'col-lg-2 col-md-2 control-label', for: 'inputBooth'
             .col-lg-10.col-md-10
-              = f.text_field :booth, placeholder: 'ブース', class: 'form-control', id: 'inputBooth'
+              = f.text_field :booth, placeholder: '大熊銅像前', class: 'form-control', id: 'inputBooth'
               %span.help-block ブースの場所を入力してください(任意)
+          .form-group
+            = f.label :facebook, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputFB'
+            .col-lg-10.col-md-10
+              = f.radio_button :phone_possible, true, id: 'inputFB'
+              = f.label :有
+            .col-lg-10.col-md-10
+              = f.radio_button :phone_possible, false , id: 'inputFB'
+              = f.label :無
+          .form-group
+            = f.label :twitter, class: 'col-lg-2 col-md-2 control-label', for: 'inputTwitter'
+            .col-lg-10.col-md-10
+              = f.text_field :twitter, placeholder: 'milestonewaseda', class: 'form-control', id: 'inputTwitter'
+              %span.help-block @以降を入力してください
               %br/
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-10

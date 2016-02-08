@@ -8,14 +8,15 @@
         .col-lg-2.col-md-2
         .col-lg-8.col-md-8.circle-new
           .form-group
-            = f.label :circle, class: 'col-lg-2 col-md-2', for: 'inputCircle'
+            = f.label :サークル, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputCircle'
             .col-lg-10.col-md-10
-              .col-lg-12
-                = f.radio_button :circle_id, @event.circle.id , {}
-                = f.label :"#{@event.circle.name}"
+              - current_user.circles.each do |circle|
+                .col-lg-12
+                  = f.radio_button :circle_id, circle.id , {}
+                  = f.label :"#{circle.name}"
               %span.help-block イベントを投稿するサークルを選択してください
           .form-group
-            = f.label :date, class: 'col-lg-2 col-md-2 date-label', for: 'inputDate'
+            = f.label :日付, class: 'col-lg-2 col-md-2 date-label', for: 'inputDate'
             .col-lg-10.col-md-10
               = f.date_field :date, class: 'form-control'
               %span.help-block
@@ -23,7 +24,7 @@
                 = EventTerm.in_term.start_date.to_s + '〜' + EventTerm.in_term.finish_date.to_s
                 )
           .form-group
-            = f.label :event_type_id, class: 'col-lg-2 col-md-2', for: 'inputCircle'
+            = f.label :イベント形式, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputCircle'
             .col-lg-10.col-md-10
               - @event_types.each do |eve_type|
                 .col-lg-12
@@ -31,31 +32,30 @@
                   = f.label eve_type.name
               %span.help-block イベントの形式を選択してください
           .form-group
-            = f.label :meeting_place, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :集合場所, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
-              = f.text_field :meeting_place, class: 'form-control', id: 'inputName'
+              = f.text_field :meeting_place, placeholder: 'ブース前', class: 'form-control', id: 'inputName'
               %span.help-block 集合場所を入力してください
           .form-group
-            = f.label :meeting_time, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :集合時間, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10.form-time
               = f.time_select :meeting_time, {minute_step: 10}, class: 'form-control select-time'
               %span.help-block.form-time 集合時間を入力してください
           .form-group
-            = f.label :fee, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :参加費, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
-              = f.text_field :fee, class: 'form-control', id: 'inputName'
+              = f.text_field :fee, placeholder: '0', class: 'form-control', id: 'inputName'
               %span.help-block 料金を入力してください。単位は省略してください。
           .form-group
-            = f.label :place, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :実施場所, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
-              = f.text_field :place, class: 'form-control', id: 'inputName'
+              = f.text_field :place, placeholder: 'ブース', class: 'form-control', id: 'inputName'
               %span.help-block 実施場所を入力してください
           .form-group
-            = f.label :appeal, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
+            = f.label :アピール, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputName'
             .col-lg-10.col-md-10
-              = f.text_area :appeal, placeholder: 'max 100 characters', class: 'form-control', id: 'inputName'
+              = f.text_area :appeal, placeholder: '最大100文字', class: 'form-control', id: 'inputName'
               %span.help-block PR文を入力してください。上限は100字です。
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-10
-              = f.submit 'Register', class: 'btn btn-primary'
-              = link_to 'destroy', event_path, method: :delete, class: 'btn btn-danger btn-destroy'
+              = f.submit 'Update', class: 'btn btn-primary'
