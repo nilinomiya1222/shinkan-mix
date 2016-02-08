@@ -108,7 +108,7 @@
                 %tr
                   %td.key 人数
                   %td.value
-                    = circle.member_male + circle.member_female if circle.member_male
+                    = circle.member_male.to_i + circle.member_female.to_i if circle.member_male
                     (men:
                     = circle.member_male
                     women:
