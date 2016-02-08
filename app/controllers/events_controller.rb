@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   end
   def new
     @event = Event.new
+    @event.date = Date.today
   end
   def create
     if current_user.owner?
