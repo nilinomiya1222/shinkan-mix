@@ -1,8 +1,15 @@
-= button_tag class: 'btn btn-default' do
-  - if @circle.like_blank?(current_user)
-    = link_to image_tag('fav.svg'), likes_path(circle_id: @circle.id), method: :post, remote: true
-  - else
-    = link_to image_tag('fav_yellow.svg'), like_path(id: @circle.id ,circle_id: @circle.id), method: :delete, remote: true
-  Like
-  %span#favs_count
-    = @circle.likes.count
+- if user_signed_in?
+  = button_tag class: 'btn btn-default' do
+    - if @circle.like_blank?(current_user)
+      = link_to image_tag('fav.svg'), likes_path(circle_id: @circle.id), method: :post, remote: true
+    - else
+      = link_to image_tag('fav_yellow.svg'), like_path(id: @circle.id ,circle_id: @circle.id), method: :delete, remote: true
+    Like
+    %span#favs_count
+      = @circle.likes.count
+- else
+  = button_tag class: 'btn btn-default disabled' do
+    = image_tag('fav_yellow.svg')
+    Like
+    %span#favs_count
+      = @circle.likes.count
