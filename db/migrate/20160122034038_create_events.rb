@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :event_type_id
       t.string :meeting_place
       t.datetime :meeting_time
-      t.integer :join_grade
       t.integer :fee
       t.string :place
       t.text :appeal
