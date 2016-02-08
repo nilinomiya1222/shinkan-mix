@@ -1,5 +1,19 @@
-class Circle < ActiveRecord::Base
+class EmailValidator < ActiveModel::Validator
+  def validate(record)
+    unless record.show_email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      record.errors[:email] << 'の形式が正しくありません'
+    end
+  end
+end
+class PhoneNumberValidator < ActiveModel::Validator
+  def validate(record)
+    unless record.phone =~ /^0[0-9]{1,4}-[0-9]{1,4}-[0-9]{4}$/
+      record.errors[:phone] << ' 電話番号の形式が正しくありません'
+    end
+  end
+end
 
+class Circle < ActiveRecord::Base
   #association
   belongs_to :user
   belongs_to :circle_genre
@@ -13,11 +27,14 @@ class Circle < ActiveRecord::Base
   enum status: %i(closed registered published)
 
   #validatrion
+  include ActiveModel::Validations
   validates :name, presence: true
   validates :name_kana, presence: true
   validates :circle_genre_id, presence: true
   validates :join_grades, presence: true
   validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
+  validates_with EmailValidator
+  validates_with PhoneNumberValidator
 
   #scope
     #for search
@@ -35,5 +52,4 @@ class Circle < ActiveRecord::Base
   def like_blank?(current_user)
     likes.find_by(user_id: current_user.id).blank? unless current_user.blank?
   end
-
 end
