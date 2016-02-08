@@ -261,6 +261,14 @@ table.table-tab {
 label {
   font-weight: normal;
 }
+label.control-label {
+  padding-left: 0px;
+  padding-right: 8px;
+  &-check {
+    padding-top: 0 !important;
+  }
+}
+
 
 textarea,
 textarea.form-control,
