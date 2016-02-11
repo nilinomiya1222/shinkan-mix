@@ -41,3 +41,5 @@
         events
     %hr
     = render partial: 'event', collection: @events
+    .col-xs-12.paginate
+      = paginate @events

@@ -109,3 +109,5 @@
           circles
       %hr
       = render partial: 'circle', collection: @circles
+      .col-xs-12.paginate
+        = paginate @circles

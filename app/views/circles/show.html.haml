@@ -131,4 +131,6 @@
     .title
       %h3 Events List
     .event-list
-      = render partial: 'events/event', collection: @circle.events.order("date ASC")
+      = render partial: 'events/event', collection: @events.order("date ASC")
+    .col-xs-12.paginate
+      = paginate @events
