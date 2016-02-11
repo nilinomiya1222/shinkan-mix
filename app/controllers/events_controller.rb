@@ -19,7 +19,7 @@ class EventsController < ApplicationController
       @event = Event.new(event_params)
       if @event.save
         flash[:success] = 'イベント情報が投稿されました'
-        redirect_to :root and return
+        redirect_to event_path(@event)
       else
         render :new
         flash[:error] = '投稿に失敗しました'
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   def update
     if @event.circle.user_id == current_user.id
       if @event.update(event_params)
-        redirect_to controller: 'users', action: 'show', id: current_user.id
+        redirect_to event_path(@event)
         flash[:success] = 'イベント情報が更新されました'
       else
         render :edit, danger: 'イベント情報の更新に失敗しました'

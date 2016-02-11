@@ -25,7 +25,7 @@ class CirclesController < ApplicationController
     @circle = current_user.circles.new(circle_params)
     if @circle.save
       flash[:success] = 'サークル情報が投稿されました'
-      redirect_to :root and return
+      redirect_to circle_path(@circle)
     else
       render :new
       flash[:error] = '投稿に失敗しました'
@@ -38,7 +38,7 @@ class CirclesController < ApplicationController
   def update
     if @circle.user_id == current_user.id
       if @circle.update(circle_params)
-        redirect_to controller: 'users', action: 'show', id: current_user.id
+        redirect_to circle_path(@circle)
         flash[:success] = 'サークル情報が更新されました'
       else
         render :edit, danger: 'サークル情報の更新に失敗しました'
