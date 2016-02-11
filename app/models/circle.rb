@@ -36,6 +36,8 @@ class Circle < ActiveRecord::Base
   validates_with EmailValidator
   validates_with PhoneNumberValidator
 
+  paginates_per 6
+
   #scope
     #for search
       scope :name_like, -> name { where('name like ?', "%#{name}%") if name.present? }

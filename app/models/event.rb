@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   belongs_to :event_term
   belongs_to :event_type
 
+  paginates_per 6
+
   #validation
   include ActiveModel::Validations
   validates_with DateValidator
