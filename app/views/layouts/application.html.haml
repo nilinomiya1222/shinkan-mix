@@ -9,6 +9,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = render 'layouts/favicon'
+    = analytics_init if Rails.env.production?
   %body
     = render 'layouts/header'
     - flash.each do |name, msg|

@@ -90,4 +90,5 @@ Rails.application.configure do
     :password => "#{Settings.devise.mailer.password}",
     :authentication => 'login',
   }
+  GA.tracker = "UA-73652973-1"
 end
