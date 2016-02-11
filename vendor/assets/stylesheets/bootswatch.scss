@@ -609,6 +609,10 @@ input[type="checkbox"],
   clear: both;
 }
 
+.genre-list {
+  padding-left: 0px;
+}
+
 .lg-genre-list {
   margin-bottom: 40px;
 }
@@ -660,6 +664,10 @@ a.navbar-brand {
 .show-content {
   min-height: 425px;
   width: 100%;
+}
+
+.tab-content {
+  padding: 0 13px;
 }
 
 // Indicators =================================================================
@@ -1059,7 +1067,7 @@ hr.hr-circle-name {
 }
 
 .circle-num {
-  margin-left: 20px;
+  margin-left: 15px;
   font-size: 16px;
   color: gray;
 }
