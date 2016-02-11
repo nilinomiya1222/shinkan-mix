@@ -60,6 +60,7 @@ gem 'devise'
 gem 'config'
 gem 'kaminari'
 gem 'rails_admin'
+gem 'google-analytics-rails'
 
 # ==== bootstrap-sass
 gem 'bootstrap-sass'
