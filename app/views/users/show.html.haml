@@ -57,6 +57,10 @@
                     %i{ class: "glyphicon glyphicon-#{circle.circle_genre.genre_icon(circle.lg_genre_name)}" }
                     = circle.circle_genre.name
                 %tr
+                  %td.key キャンパス
+                  %td.value
+                    = circle.campus
+                %tr
                   %td.key 名前
                   %td.value
                     = circle.name
@@ -79,6 +83,17 @@
                     ブース設置場所
                   %td.value
                     = circle.booth
+                %tr
+                  %td.key メディア
+                  %td.value.media-value
+                    - unless circle.hp.blank?
+                      = link_to image_tag('hp_icon_active.svg', class: 'icon'), circle.hp
+                    - else
+                      = image_tag('hp_icon.svg', class: 'icon')
+                    - unless circle.twitter.blank?
+                      = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}"
+                    - else
+                      = image_tag('t_icon.svg', class: 'icon')
             = link_to '編集する', edit_circle_path(circle), class: 'btn btn-primary edit-button'
           %div{ class: "tab-pane fade", id:"express-info#{i}"}
             %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
@@ -93,10 +108,6 @@
                   %th.key
                   %th.value
               %tbody
-                %tr
-                  %td.key キャンパス
-                  %td.value
-                    = circle.campus
                 %tr
                   %td.key 代表者
                   %td.value
@@ -157,17 +168,6 @@
                   %td.key アピール
                   %td.value
                     = circle.appeal
-                %tr
-                  %td.key メディア
-                  %td.value.media-value
-                    - unless circle.hp.blank?
-                      = link_to image_tag('hp_icon_active.svg', class: 'icon'), circle.hp
-                    - else
-                      = image_tag('hp_icon.svg', class: 'icon')
-                    - unless circle.twitter.blank?
-                      = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}"
-                    - else
-                      = image_tag('t_icon.svg', class: 'icon')
           %div{ class: "tab-pane fade", id:"circle-events#{i}"}
             = render partial: 'events/event', collection: circle.events.order("date ASC")
             .col-xs-12.bottom-event
