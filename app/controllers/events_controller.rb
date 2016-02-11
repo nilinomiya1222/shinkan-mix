@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :registerable_term?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.order('date ASC')
+    @events = Event.order('date ASC').page(params[:page])
   end
   def show
   end
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
     end
   end
   def search
-    @events = Event.where(date: params[:date])
+    @events = Event.where(date: params[:date]).page(params[:page])
   end
 
   private

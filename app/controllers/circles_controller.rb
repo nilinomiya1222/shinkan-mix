@@ -7,10 +7,11 @@ class CirclesController < ApplicationController
   before_action :set_genres
 
   def index
-    @circles = Circle.where.not(status: 0)
+    @circles = Circle.where.not(status: 0).page(params[:page])
   end
 
   def show
+    @events = @circle.events.page(params[:page])
   end
 
   def new
@@ -59,7 +60,7 @@ class CirclesController < ApplicationController
 
 
   def search
-    @circles = Circle.where('name LIKE(?)', "%#{params[:keyword]}%")
+    @circles = Circle.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page])
   end
 
   private
