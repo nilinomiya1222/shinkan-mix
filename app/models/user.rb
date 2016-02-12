@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
 
   #validation
   validates :nickname, presence: true
+  validate :rule_confirmed_valid?
+
+  private
+  def rule_confirmed_valid?
+    errors.add(:rule_confirmed, 'して頂かない場合は、登録できません。') unless rule_confirmed == true
+  end
 end

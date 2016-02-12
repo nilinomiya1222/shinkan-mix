@@ -34,6 +34,7 @@
             .col-lg-8.col-md-8
               = f.password_field :current_password, placeholder: "current password", autocomplete: "off", class: 'form-control', id: 'inputPassword'
               %span.help-block 変更を確定するには現在のパスワードを入力してください
+              = f.hidden_field :rule_confirmed, value: true
           .form-group
             .col-lg-12.btn-update
               = f.submit 'Update', class: 'btn btn-primary'

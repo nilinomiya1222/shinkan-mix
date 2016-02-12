@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'circles#index'
+  get 'about' => 'lp/welcome#index'
+  get 'terms' => 'lp/welcome#show'
+
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

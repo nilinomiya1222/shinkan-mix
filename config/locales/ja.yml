@@ -1,5 +1,6 @@
 ja:
   attributes:
+    rule_confirmed: 利用規約に同意
     email: email
     password: password
     group_id: グループ名

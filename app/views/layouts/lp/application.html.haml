@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %title 新歓MiX | マイルストーン編集会
+    %meta{name:"description", content: 'マイルストーン編集会の発行する早大生向け情報誌『新歓MiX』のWebアプリです'}
+    = stylesheet_link_tag    'lp/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'lp/application', 'data-turbolinks-track' => true
+    %link{href: 'http://fonts.googleapis.com/css?family=Varela+Round', rel:'stylesheet', type:'text/css'}
+    %link{href:"http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel:"stylesheet"}
+    = csrf_meta_tags
+    = render 'layouts/favicon'
+    = analytics_init if Rails.env.production?
+  = yield

@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :set_status, if: :devise_controller?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:nickname, :status)
-    devise_parameter_sanitizer.for(:account_update).push(:nickname, :status)
+    devise_parameter_sanitizer.for(:sign_up).push(:nickname, :status, :rule_confirmed)
+    devise_parameter_sanitizer.for(:account_update).push(:nickname, :status, :rule_confirmed)
   end
 
   def after_sign_in_path_for(resource)

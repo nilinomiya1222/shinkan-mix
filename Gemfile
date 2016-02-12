@@ -55,6 +55,7 @@ end
 group :production, :staging do
   gem 'unicorn'
 end
+gem 'jquery-smooth-scroll-rails', :git => 'git@github.com:gretel/jquery-smooth-scroll-rails.git'
 
 gem 'devise'
 gem 'config'

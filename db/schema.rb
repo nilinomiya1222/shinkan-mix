@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208080717) do
+ActiveRecord::Schema.define(version: 20160212133617) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160208080717) do
     t.string   "chief",           limit: 255
     t.string   "chief_kana",      limit: 255
     t.string   "sub_chief",       limit: 255
-    t.string   "member_male",     limit: 255,   default: "0",             null: false
-    t.string   "member_female",   limit: 255,   default: "0",             null: false
+    t.string   "member_male",     limit: 255,   default: "0",   null: false
+    t.string   "member_female",   limit: 255,   default: "0",   null: false
     t.integer  "since",           limit: 4
     t.integer  "entrance_fee",    limit: 4
     t.integer  "annual_fee",      limit: 4
@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 20160208080717) do
     t.text     "pr",              limit: 65535
     t.string   "hp",              limit: 255
     t.string   "twitter",         limit: 255
-    t.boolean  "facebook",                      default: false,           null: false
-    t.integer  "status",          limit: 4,     default: 1,               null: false
+    t.boolean  "facebook",                      default: false, null: false
+    t.integer  "status",          limit: 4,     default: 1,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "circle_genre_id", limit: 4
     t.string   "booth",           limit: 255
-    t.string   "phone",           limit: 13,    default: "000-0000-0000", null: false
-    t.boolean  "phone_possible",                default: false,           null: false
+    t.string   "phone",           limit: 13,    default: ""
+    t.boolean  "phone_possible",                default: false, null: false
     t.string   "show_email",      limit: 255
   end
 
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20160208080717) do
     t.integer  "status",                 limit: 4,   default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "rule_confirmed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

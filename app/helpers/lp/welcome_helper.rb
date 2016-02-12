@@ -1,0 +1,2 @@
+module Lp::WelcomeHelper
+end

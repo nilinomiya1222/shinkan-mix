@@ -1,0 +1,2 @@
+module Lp::BaseHelper
+end
