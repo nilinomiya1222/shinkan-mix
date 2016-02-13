@@ -59,3 +59,4 @@
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-10
               = f.submit 'Update', class: 'btn btn-primary'
+              = link_to "削除する", event_path, method: :delete, class: 'btn btn-warning' , data: { confirm: "本当によろしいですか？" }, method: :delete
