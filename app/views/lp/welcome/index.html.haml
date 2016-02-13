@@ -51,7 +51,14 @@
               %em Milestone Editorial Club
         .row
           .col-md-6.col-md-offset-3.text-center
-            = link_to 'はじめる', root_path, class: 'learn-more-btn'
+            = link_to 'はじめる', circles_path, class: 'learn-more-btn'
+        .row
+          .intro-about
+            .col-md-6.col-md-offset-3.text-center
+              %h1.arrow 詳しく知る
+              %div
+                %a.down-arrow-btn{:href => "#intro"}
+                  %i.fa.fa-chevron-down
   %section#intro.intro.text-center.section-padding
     .container
       .row
@@ -82,7 +89,7 @@
                 %i.fa.fa-heart.shadow
               %h2 イベントに参加する
               %p
-                サークルを決めるのにはやっぱり人に会ってみることが第一。『Milestone Express』や新歓MiXで情報収集に励んだ後は、実際にイベントに参加してみましょう！
+                サークルを決めるにはやっぱり人に会ってみることが第一。『Milestone Express』や新歓MiXで情報収集に励んだ後は、実際にイベントに参加してみましょう！
                 大学生活を決める素敵な出会いがきっとそこに。
             .clearfix
   %section#responsive.text-center
@@ -100,7 +107,7 @@
                   %h1.arrow Web版 新歓MiX
                   %p 早稲田のサークルと新歓期のイベント情報を網羅したフリーペーパー『新歓MiX』を、Webで公開します。
                   %p お気に入りのサークルをLikeして、気になるサークルのイベントを見逃さないようにしましょう。
-                  %p サークルとイベントの検索もできます。フリーペーパーと合わせて使えば、もはやサークル難民になる心配はありません。
+                  %p サークルとイベントの検索もできます。フリーペーパーと合わせて使えば、サークル難民になる心配はありません。
   %section.swag.text-center
     .container
       .row
@@ -123,7 +130,7 @@
                     = image_tag 'portfolio-01.jpg'
                     .overlay
                       - if user_signed_in?
-                        = link_to root_path, class: 'expand' do
+                        = link_to circles_path, class: 'expand' do
                           %i.fa.fa-search
                           = succeed "TRY" do
                             %br/
@@ -228,7 +235,7 @@
         .col-md-6.credit
           %p
             Presented by
-            %a{:href => "http://www.e-mile.com/"} Milestone Editorial Club
+            = link_to 'Milestone Editorial Club', 'http://www.e-mile.com/'
             2016
             無断転載を禁じます。
 
