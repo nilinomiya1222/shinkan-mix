@@ -35,6 +35,7 @@ class Circle < ActiveRecord::Base
   validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
   validates_with EmailValidator
   validates_with PhoneNumberValidator
+  validates :twitter, format: { with: /\A^(?!.*@).+$\z/i, message: "@は入力しないでください"}
 
   paginates_per 6
 
