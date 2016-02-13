@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
     else
-      redirect_to :root
+      redirect_to circles_path
     end
   end
 end

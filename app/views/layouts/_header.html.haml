@@ -6,7 +6,10 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to image_tag('logo.png', height: '36px'), root_path , class: 'navbar-brand'
+      - if controller.controller_name == 'events'
+        = link_to image_tag('logo.png', height: '36px'), events_path , class: 'navbar-brand'
+      - else
+        = link_to image_tag('logo.png', height: '36px'), circles_path , class: 'navbar-brand'
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown

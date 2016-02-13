@@ -42,10 +42,10 @@ class EventsController < ApplicationController
     if @event.circle.user_id == current_user.id
       if @event.destroy
         flash[:success] = 'イベント情報を削除しました'
-        redirect_to :root
+        redirect_to events_path
       else
         flash[:danger] = 'イベント情報の削除に失敗しました'
-        redirect_to :root
+        redirect_to events_path
       end
     end
   end
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
   end
   def circle_owner?
     unless current_user.owner?
-      redirect_to :root and return
+      redirect_to circles_path and return
     end
   end
   def set_event
@@ -75,7 +75,7 @@ class EventsController < ApplicationController
   end
   def registerable_term?
     if EventTerm.where(status: 1).blank?
-      redirect_to :root
+      redirect_to events_path
       flash[:warning] = '登録可能期間外です'
     end
   end

@@ -66,7 +66,7 @@ class CirclesController < ApplicationController
   private
   def circle_owner?
     unless current_user.owner?
-      redirect_to :root and return
+      redirect_to circles_path and return
     end
   end
 
@@ -90,7 +90,7 @@ class CirclesController < ApplicationController
 
   def circle_registered?
     if @circle.closed?
-      redirect_to :root
+      redirect_to circles_path
       return
     end
   end
