@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'circles#index'
+  root 'lp/welcome#index'
   get 'about' => 'lp/welcome#index'
   get 'terms' => 'lp/welcome#show'
 
