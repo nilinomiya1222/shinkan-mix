@@ -27,12 +27,16 @@
           = msg
     = yield
     %footer
-      .col-xs-12.credit
-        .col-xs-1
-        .col-xs-10
-          %p.link
-            = link_to image_tag('hp_icon_blue.svg', class: 'icon'), 'http://e-mile.com'
-            = link_to image_tag('t_icon_blue.svg', class: 'icon'), 'http://twitter.com/milestonewaseda'
-          %hr
-          %p.credit-name
-            (C) Milestone Editorial Club 2016
+      .container
+        .row
+          .col-md-6
+            %ul.legals
+              %li
+                = link_to '新歓MiX', circles_path
+              %li
+                = link_to '利用規約', terms_path
+          .col-md-6.credit
+            %p
+              Presented by
+              %a{:href => "http://www.e-mile.com/"} Milestone Editorial Club 2016
+              無断転載を禁じます。
