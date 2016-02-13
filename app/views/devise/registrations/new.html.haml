@@ -32,7 +32,7 @@
             .col-md-4
             .checkbox.col-md-6
               = f.check_box :rule_confirmed, class: 'control-control'
-              = link_to '利用規約', '#', class: 'form-label'
+              = link_to '利用規約', terms_path, class: 'form-label'
               に同意する
             = f.hidden_field :status, value: 'owner' if @status == 1
           .form-group
