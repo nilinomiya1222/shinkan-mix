@@ -122,10 +122,16 @@
                   .img
                     = image_tag 'portfolio-01.jpg'
                     .overlay
-                      = link_to new_user_registration_path(status: 1), class: 'expand' do
-                        %i.fa.fa-search
-                        = succeed "TRY" do
-                          %br/
+                      - if user_signed_in?
+                        = link_to root_path, class: 'expand' do
+                          %i.fa.fa-search
+                          = succeed "TRY" do
+                            %br/
+                      - else
+                        = link_to new_user_registration_path(status: 1), class: 'expand' do
+                          %i.fa.fa-search
+                          = succeed "TRY" do
+                            %br/
                       %a.close-overlay.hidden x
                 %h2 ユーザー登録
                 %p まずはユーザー登録をしましょう。必要事項を入力すると、登録したメールアドレスにメールが来ます。メールのリンクをクリックして、早速ログインしましょう。
@@ -146,14 +152,8 @@
                   .img
                     = image_tag 'portfolio-03.jpg'
                     .overlay
-                      - if user_signed_in?
-                        = link_to root_path, class: 'expand' do
-                          %i.fa.fa-search
-                        = succeed "TRY" do
-                          %br/
-                      - else
-                        = link_to new_event_path, class: 'expand' do
-                          %i.fa.fa-search
+                      = link_to new_event_path, class: 'expand' do
+                        %i.fa.fa-search
                         = succeed "TRY" do
                           %br/
                       %a.close-overlay.hidden x
