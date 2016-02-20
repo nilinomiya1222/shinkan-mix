@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_types
   before_action :user_has_circle? , only: [:new, :create, :edit, :update, :destroy]
