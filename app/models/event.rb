@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
   validates_with DateValidator
   validates :date, presence: true
   validates :event_type_id, presence: true
+  validates :fee, numericality: true
   validates :circle_id, presence: true
   validates :appeal, presence: true, length: { maximum: 100, too_long: '100字以内で入力してください'}
 end
