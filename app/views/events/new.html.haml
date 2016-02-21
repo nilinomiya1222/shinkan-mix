@@ -23,9 +23,12 @@
           .form-group
             = f.label :サークル, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputCircle'
             .col-lg-10.col-md-10
-              - current_user.circles.each do |circle|
+              - current_user.circles.each_with_index do |circle, i|
                 .col-lg-12
-                  = f.radio_button :circle_id, circle.id , {}
+                  - if i == 0
+                    = f.radio_button :circle_id, circle.id , { checked: true }
+                  - else
+                    = f.radio_button :circle_id, circle.id , {}
                   = f.label :"#{circle.name}"
               %span.help-block イベントを投稿するサークルを選択してください
           .form-group
@@ -39,9 +42,12 @@
           .form-group
             = f.label :イベント形式, class: 'col-lg-2 col-md-2 control-label control-label-check', for: 'inputCircle'
             .col-lg-10.col-md-10
-              - @event_types.each do |eve_type|
+              - @event_types.each_with_index do |eve_type, i|
                 .col-lg-12
-                  = f.radio_button :event_type_id, eve_type.id
+                  - if i == 0
+                    = f.radio_button :event_type_id, eve_type.id, { checked: true }
+                  - else
+                    = f.radio_button :event_type_id, eve_type.id
                   = f.label eve_type.name
               %span.help-block イベントの形式を選択してください
           .form-group
@@ -58,7 +64,7 @@
             = f.label :参加費, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
               = f.text_field :fee, placeholder: '0', class: 'form-control', id: 'inputName'
-              %span.help-block 料金を入力してください。単位は省略してください。
+              %span.help-block 料金を半角数字で入力してください。単位は省略してください。
           .form-group
             = f.label :実施場所, class: 'col-lg-2 col-md-2 control-label', for: 'inputName'
             .col-lg-10.col-md-10
