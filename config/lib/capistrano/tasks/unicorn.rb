@@ -1,3 +1,6 @@
+  before_exec do |server|
+    ENV['BUNDLE_GEMFILE'] = "#{app_dir}/Gemfile"
+  end
 #unicornのpidファイル、設定ファイルのディレクトリを指定
 namespace :unicorn do
   task :environment do
