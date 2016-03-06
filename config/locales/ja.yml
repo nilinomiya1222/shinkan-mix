@@ -1,4 +1,11 @@
 ja:
+  views:
+    pagination:
+      first: "<"
+      previous: "<<"
+      next: ">"
+      last: ">>"
+      truncate: "..."
   attributes:
     rule_confirmed: 利用規約に同意
     email: email
