@@ -39,6 +39,19 @@
     %section#hero.hero
       .container
         .row
+          - flash.each do |name, msg|
+            - if name == 'error'
+              %div{class: "alert alert-danger", role: 'alert'}
+                = msg
+            - elsif name == 'alert'
+              %div{class: "alert alert-warning", role: 'alert'}
+                = msg
+            - elsif name == 'notice'
+              %div{class: "alert alert-success", role: 'alert'}
+                = msg
+            - else
+              %div{class: "alert alert-#{name}", role: 'alert'}
+                = msg
           .col-md-12.text-right.navicon
             %a#nav-toggle.nav_slide_button{:href => "#"}
               %span
