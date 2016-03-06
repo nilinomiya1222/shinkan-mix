@@ -20,13 +20,13 @@ class ApplicationController < ActionController::Base
   end
 
   def register_express_circle
-    circle = Circle.where(email: current_user.email)
+    circle = Circle.where(show_email: current_user.email)
     circle.update(circle.length, user_id: current_user.id, status: 1)
   end
 
   def user_registered_express?
     if user_signed_in?
-      if current_user.circles.blank? && Circle.where(email: current_user.email).present?
+      if current_user.circles.blank? && Circle.where(show_email: current_user.email).present?
         register_express_circle
       end
     end
