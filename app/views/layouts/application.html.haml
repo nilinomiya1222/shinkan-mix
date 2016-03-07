@@ -12,6 +12,8 @@
     = analytics_init if Rails.env.production?
   %body
     = render 'layouts/header'
+    %div{class: "alert alert-danger", role: 'alert'}
+      3/11(金)0:00〜7:00の間、メンテナンスの為サービスを一時停止致します。
     - flash.each do |name, msg|
       - if name == 'error'
         %div{class: "alert alert-danger", role: 'alert'}
