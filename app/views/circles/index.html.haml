@@ -105,7 +105,7 @@
       %h3.list-title
         Circle Lists
         %span.circle-num
-          = @circles.length
+          = Circle.where.not(status: 0).length
           circles
       %hr
       = render partial: 'circle', collection: @circles
