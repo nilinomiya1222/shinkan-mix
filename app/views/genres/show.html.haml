@@ -28,5 +28,9 @@
         = @genre.name
       - if @genre.type == 'EventType'
         = render partial: 'events/event', collection: @contents
+        .col-xs-12.paginate
+          = paginate @contents
       - else
         = render partial: 'circles/circle', collection: @contents
+        .col-xs-12.paginate
+          = paginate @contents
