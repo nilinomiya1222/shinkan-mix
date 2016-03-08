@@ -157,18 +157,24 @@
                     年
                     = circle.camp
                     回
+                - ec = ECircle.where(pr: circle.appeal)[0]
+                - ps = CirclePoint.where(circle_id: ec.id)
                 %tr
                   %td.key 会則
                   %td.value
-                    - circle.rules.each do |r|
-                      = r.name
-                      %br
+                    - unless ec.nil?
+                      - ps.each do |p|
+                        - unless p.rule.nil?
+                          = p.rule.name
+                          %br
                 %tr
                   %td.key アピールポイント
                   %td.value
-                    - circle.appeals.each do |ap|
-                      = ap.name
-                      %br
+                    - unless ec.nil?
+                      - ps.each do |p|
+                        - unless p.appeal.nil?
+                          = p.appeal.name
+                          %br
                 %tr
                   %td.key アピール
                   %td.value
