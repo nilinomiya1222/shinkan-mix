@@ -1,10 +1,3 @@
-class EmailValidator < ActiveModel::Validator
-  def validate(record)
-    unless record.show_email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-      record.errors[:email] << 'の形式が正しくありません'
-    end
-  end
-end
 class PhoneNumberValidator < ActiveModel::Validator
   def validate(record)
     unless record.phone =~ /^0[0-9]{1,4}-[0-9]{1,4}-[0-9]{4}$/
@@ -33,7 +26,6 @@ class Circle < ActiveRecord::Base
   validates :circle_genre_id, presence: true
   validates :join_grades, presence: true
   validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
-  validates_with EmailValidator
   validates_with PhoneNumberValidator
 
   paginates_per 6
@@ -44,35 +36,36 @@ class Circle < ActiveRecord::Base
       scope :genre_like, -> all_member { where("all_member > 100") if name.present? }
 
   def return_grade
-    if self == 0
+    grade = self.join_grades
+    if grade == 0
       return '新１年'
-    elsif self == 1
+    elsif grade == 1
       return '新１・２年'
-    elsif self == 2
+    elsif grade == 2
       return '新１〜３年'
-    elsif self == 3
+    elsif grade == 3
       return '新１〜４年'
-    elsif self == 4
+    elsif grade == 4
       return '新１〜４年・院生'
-    elsif self == 5
+    elsif grade == 5
       return '新１〜４年・院生・社会人'
-    elsif self == 6
+    elsif grade == 6
       return '新２・３年'
-    elsif self == 7
+    elsif grade == 7
       return '新２〜４年'
-    elsif self == 8
+    elsif grade == 8
       return '新１〜８年'
-    elsif self == 9
+    elsif grade == 9
       return '新１〜８年・院生'
-    elsif self == 10
+    elsif grade == 10
       return '新１〜５年'
-    elsif self == 11
+    elsif grade == 11
       return '新１〜６年'
-    elsif self == 12
+    elsif grade == 12
       return '新１〜６年・院生'
-    elsif self == 13
+    elsif grade == 13
       return '新１〜６年・社会人'
-    elsif self == 14
+    elsif grade == 14
       return '指定なし'
     else
       return '５年以上'
