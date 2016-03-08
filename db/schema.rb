@@ -85,13 +85,13 @@ ActiveRecord::Schema.define(version: 20160308033303) do
     t.integer  "member_male",     limit: 4,     default: 0,     null: false
     t.integer  "member_female",   limit: 4,     default: 0,     null: false
     t.integer  "since",           limit: 4
-    t.integer  "entrance_fee",    limit: 4
-    t.integer  "annual_fee",      limit: 4
+    t.string   "entrance_fee",    limit: 255
+    t.string   "annual_fee",      limit: 255
     t.string   "active_weeks",    limit: 255
     t.string   "active_times",    limit: 255
     t.string   "hangout",         limit: 255
     t.string   "location",        limit: 255
-    t.integer  "camp",            limit: 4
+    t.string   "camp",            limit: 255
     t.integer  "join_grades",     limit: 4
     t.string   "appeal",          limit: 255
     t.text     "pr",              limit: 65535
