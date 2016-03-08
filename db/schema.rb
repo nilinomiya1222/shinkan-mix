@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212133617) do
+ActiveRecord::Schema.define(version: 20160308033303) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -38,15 +38,52 @@ ActiveRecord::Schema.define(version: 20160212133617) do
 
   create_table "circles", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
+    t.integer  "circle_genre_id", limit: 4
     t.string   "campus",          limit: 255
     t.string   "name",            limit: 255
     t.string   "name_kana",       limit: 255
     t.string   "email",           limit: 255
+    t.string   "show_email",      limit: 255
+    t.string   "phone",           limit: 13
+    t.boolean  "phone_possible",                default: false, null: false
     t.string   "chief",           limit: 255
     t.string   "chief_kana",      limit: 255
     t.string   "sub_chief",       limit: 255
-    t.string   "member_male",     limit: 255,   default: "0",   null: false
-    t.string   "member_female",   limit: 255,   default: "0",   null: false
+    t.integer  "member_male",     limit: 4,     default: 0,     null: false
+    t.integer  "member_female",   limit: 4,     default: 0,     null: false
+    t.integer  "since",           limit: 4
+    t.string   "entrance_fee",    limit: 255
+    t.string   "annual_fee",      limit: 255
+    t.string   "active_weeks",    limit: 255
+    t.string   "active_times",    limit: 255
+    t.string   "hangout",         limit: 255
+    t.string   "location",        limit: 255
+    t.string   "camp",            limit: 255
+    t.integer  "join_grades",     limit: 4
+    t.string   "appeal",          limit: 255
+    t.text     "pr",              limit: 65535
+    t.string   "booth",           limit: 255
+    t.string   "hp",              limit: 255
+    t.string   "twitter",         limit: 255
+    t.boolean  "facebook",                      default: false, null: false
+    t.integer  "status",          limit: 4,     default: 1,     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "e_circles", force: :cascade do |t|
+    t.integer  "circle_genre_id", limit: 4
+    t.string   "campus",          limit: 255
+    t.string   "name",            limit: 255
+    t.string   "name_kana",       limit: 255
+    t.string   "email",           limit: 255
+    t.string   "phone",           limit: 13
+    t.boolean  "phone_possible",                default: false, null: false
+    t.string   "chief",           limit: 255
+    t.string   "chief_kana",      limit: 255
+    t.string   "sub_chief",       limit: 255
+    t.integer  "member_male",     limit: 4,     default: 0,     null: false
+    t.integer  "member_female",   limit: 4,     default: 0,     null: false
     t.integer  "since",           limit: 4
     t.integer  "entrance_fee",    limit: 4
     t.integer  "annual_fee",      limit: 4
@@ -61,14 +98,8 @@ ActiveRecord::Schema.define(version: 20160212133617) do
     t.string   "hp",              limit: 255
     t.string   "twitter",         limit: 255
     t.boolean  "facebook",                      default: false, null: false
-    t.integer  "status",          limit: 4,     default: 1,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "circle_genre_id", limit: 4
-    t.string   "booth",           limit: 255
-    t.string   "phone",           limit: 13,    default: ""
-    t.boolean  "phone_possible",                default: false, null: false
-    t.string   "show_email",      limit: 255
   end
 
   create_table "event_terms", force: :cascade do |t|
@@ -81,24 +112,24 @@ ActiveRecord::Schema.define(version: 20160212133617) do
 
   create_table "events", force: :cascade do |t|
     t.date     "date"
+    t.integer  "event_type_id", limit: 4
     t.string   "meeting_place", limit: 255
     t.datetime "meeting_time"
     t.integer  "fee",           limit: 4
     t.string   "place",         limit: 255
     t.text     "appeal",        limit: 65535
     t.integer  "circle_id",     limit: 4
+    t.integer  "event_term_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_type_id", limit: 4
-    t.integer  "event_term_id", limit: 4
   end
 
   create_table "genres", force: :cascade do |t|
     t.integer  "lg_genre_id", limit: 4
     t.string   "name",        limit: 255
+    t.string   "type",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type",        limit: 255
   end
 
   create_table "lg_genres", force: :cascade do |t|
@@ -120,26 +151,6 @@ ActiveRecord::Schema.define(version: 20160212133617) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id",        limit: 4
-    t.integer  "taggable_id",   limit: 4
-    t.string   "taggable_type", limit: 255
-    t.integer  "tagger_id",     limit: 4
-    t.string   "tagger_type",   limit: 255
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name",           limit: 255
-    t.integer "taggings_count", limit: 4,   default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",               limit: 255
