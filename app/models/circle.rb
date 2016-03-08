@@ -43,6 +43,43 @@ class Circle < ActiveRecord::Base
       scope :name_like, -> name { where('name like ?', "%#{name}%") if name.present? }
       scope :genre_like, -> all_member { where("all_member > 100") if name.present? }
 
+  def return_grade
+    if self == 0
+      return '新１年'
+    elsif self == 1
+      return '新１・２年'
+    elsif self == 2
+      return '新１〜３年'
+    elsif self == 3
+      return '新１〜４年'
+    elsif self == 4
+      return '新１〜４年・院生'
+    elsif self == 5
+      return '新１〜４年・院生・社会人'
+    elsif self == 6
+      return '新２・３年'
+    elsif self == 7
+      return '新２〜４年'
+    elsif self == 8
+      return '新１〜８年'
+    elsif self == 9
+      return '新１〜８年・院生'
+    elsif self == 10
+      return '新１〜５年'
+    elsif self == 11
+      return '新１〜６年'
+    elsif self == 12
+      return '新１〜６年・院生'
+    elsif self == 13
+      return '新１〜６年・社会人'
+    elsif self == 14
+      return '指定なし'
+    else
+      return '５年以上'
+    end
+  end
+
+
   def all_member
     member_male.to_i + member_female.to_i
   end
