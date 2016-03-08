@@ -122,9 +122,12 @@
           %tr
             %td.key 合宿
             %td.value
-              年
-              = circle.camp
-              回
+              - if circle.camp == 99999
+                有
+              - else
+                年
+                = circle.camp
+                回
           %tr
             %td.key 会則
             %td.value
