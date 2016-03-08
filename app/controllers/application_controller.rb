@@ -20,13 +20,13 @@ class ApplicationController < ActionController::Base
   end
 
   def register_express_circle
-    circle = Circle.where(show_email: current_user.email)
-    circle.update(circle.length, user_id: current_user.id, status: 1)
+    e_circle = ECircle.where(email: current_user.email)[0]
+    Circle.create(user_id: current_user.id ,circle_genre_id: e_circle.circle_genre_id ,campus: e_circle.campus ,name: e_circle.name ,name_kana: e_circle.name_kana ,email: e_circle.name ,phone: e_circle.phone ,phone_possible: e_circle.phone_possible ,chief: e_circle.chief ,chief_kana: e_circle.chief_kana ,sub_chief: e_circle.sub_chief ,member_male: e_circle.member_male ,member_female: e_circle.member_female ,since: e_circle.since ,entrance_fee: e_circle.entrance_fee ,annual_fee: e_circle.annual_fee ,active_weeks: e_circle.active_weeks ,active_times: e_circle.active_times ,hangout: e_circle.hangout ,location: e_circle.location ,camp: e_circle.camp ,join_grades: e_circle.join_grades ,appeal: e_circle.pr ,pr: e_circle.appeal ,hp: e_circle.hp ,twitter: e_circle.twitter ,facebook: e_circle.facebook, status: 1)
   end
 
   def user_registered_express?
     if user_signed_in?
-      if current_user.circles.blank? && Circle.where(show_email: current_user.email).present?
+      if current_user.circles.blank? && ECircle.where(email: current_user.email).present?
         register_express_circle
       end
     end
