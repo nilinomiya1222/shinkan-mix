@@ -108,11 +108,6 @@
               = f.radio_button :campus, '所沢' , id: 'inputCampus'
               = f.label :所沢
           .form-group
-            = f.label :新歓用email, class: 'col-lg-2 col-md-2 control-label', for: 'inputShinkanEmail'
-            .col-lg-10.col-md-10
-              = f.text_field :show_email, placeholder: 'info@e-mile.com', class: 'form-control', id: 'inputShinkanEmail'
-              %span.help-block 新歓MiX本誌に掲載するメールアドレスを入力してください。本アプリ上では掲載いたしません。
-          .form-group
             = f.label :電話番号, class: 'col-lg-2 col-md-2 control-label', for: 'inputPhone'
             .col-lg-10.col-md-10
               = f.text_field :phone, placeholder: '090-1234-5678', class: 'form-control', id: 'inputPhone'
