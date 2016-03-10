@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308033303) do
+ActiveRecord::Schema.define(version: 20160310181952) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -30,10 +30,13 @@ ActiveRecord::Schema.define(version: 20160308033303) do
 
   create_table "circle_points", force: :cascade do |t|
     t.integer  "circle_id",  limit: 4
-    t.integer  "rule_id",    limit: 4
-    t.integer  "appeal_id",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rule1",      limit: 255
+    t.string   "rule2",      limit: 255
+    t.string   "appeal1",    limit: 255
+    t.string   "appeal2",    limit: 255
+    t.string   "appeal3",    limit: 255
   end
 
   create_table "circles", force: :cascade do |t|

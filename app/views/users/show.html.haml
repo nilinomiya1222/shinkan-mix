@@ -158,23 +158,24 @@
                     = circle.camp
                     回
                 - ec = ECircle.where(pr: circle.appeal)[0]
-                - ps = CirclePoint.where(circle_id: ec.id)
+                - ps = CirclePoint.where(circle_id: ec.id)[0]
                 %tr
                   %td.key 会則
                   %td.value
                     - unless ec.nil?
-                      - ps.each do |p|
-                        - unless p.rule.nil?
-                          = p.rule.name
-                          %br
+                      = ps.rule1 unless ps.rule1.nil?
+                      %br
+                      = ps.rule2 unless ps.rule2.nil?
+                      %br
                 %tr
                   %td.key アピールポイント
                   %td.value
                     - unless ec.nil?
-                      - ps.each do |p|
-                        - unless p.appeal.nil?
-                          = p.appeal.name
-                          %br
+                      = ps.appeal1 unless ps.appeal1.nil?
+                      %br
+                      = ps.appeal2 unless ps.appeal2.nil?
+                      %br
+                      = ps.appeal3 unless ps.appeal3.nil?
                 %tr
                   %td.key アピール
                   %td.value
