@@ -128,7 +128,7 @@
                 = @circle.camp
                 回
           - ec = ECircle.where(pr: @circle.appeal)[0]
-          - ps = CirclePoint.where(circle_id: ec.id)[0]
+          - ps = CirclePoint.where(circle_id: ec.id)[0] unless ec.nil?
           %tr
             %td.key 会則
             %td.value
