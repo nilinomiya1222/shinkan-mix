@@ -12,8 +12,6 @@ class Circle < ActiveRecord::Base
   belongs_to :circle_genre
   has_many :events
   has_many :circle_points
-  has_many :rules, through: :circle_points
-  has_many :appeals, through: :circle_points
   has_many :likes
   belongs_to :e_circle
 
