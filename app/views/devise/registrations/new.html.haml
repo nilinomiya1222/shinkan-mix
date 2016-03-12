@@ -5,28 +5,35 @@
       = devise_error_messages!
       %fieldset
         %legend
-        - if @status == 1
-          %h2 サークル様向けユーザー登録フォーム
-        - else
-          %h2 新入生向けユーザー登録フォーム
+          %h2 新規登録
         .col-lg-1.col-md-1
         .col-lg-10.col-md-10.circle-new
           .form-group
-            = f.label :nickname, class: 'col-lg-4 col-md-4  control-label', for: 'inputNickname'
+            = f.label :アカウント名, class: 'col-lg-4 col-md-4  control-label', for: 'inputNickname'
             .col-lg-8.col-md-8
               = f.text_field :nickname, placeholder: 'nickname', class: 'form-control', id: 'inputNickname'
+          .form-group
+            = f.label :ユーザー区分, class: 'col-lg-4 col-md-4 control-label control-control-check', style: 'padding-top: 0;', for: 'inputAuthority'
+            .col-lg-8.col-md-8
+              = f.radio_button :status, 'owner', id: 'inputAuthority', class: 'input-type-circle'
+              = f.label :サークル
+            .col-lg-4.col-md-4
+            .col-lg-8.col-md-8
+              = f.radio_button :status, 'general', id: 'inputAuthority', class: 'input-type-newcomer'
+              = f.label :新入生
           .form-group
             = f.label :email, class: 'col-lg-4 col-md-4  control-label', for: 'inputEmail'
             .col-lg-8.col-md-8
               = f.email_field :email, placeholder: 'email', class: 'form-control', id: 'inputEmail'
-              %span.help-block Milestone Expressご登録の方は、新歓用アドレスをご記入ください。新歓MiX本誌にて掲載します。
+              #email-caption
+                %span.help-block 新歓MiX本誌にて掲載します。Milestone Expressご登録のサークルは、新歓用アドレスをご記入ください。
           .form-group
-            = f.label :password, class: 'col-lg-4 col-md-4 control-label', for: 'inputPassword'
+            = f.label :パスワード, class: 'col-lg-4 col-md-4 control-label', for: 'inputPassword'
             - if @minimum_password_length
               .col-lg-8.col-md-8
                 = f.password_field :password, placeholder: "#{@minimum_password_length} characters minimum", autocomplete: "off", class: 'form-control', id: 'inputPassword'
           .form-group
-            = f.label :password_confirmation, class: 'col-lg-4 col-md-4 control-label', for: 'inputPasswordConfirmation'
+            = f.label :'パスワード(確認用)', class: 'col-lg-4 col-md-4 control-label', for: 'inputPasswordConfirmation', style: 'padding-top: 18px;'
             .col-lg-8.col-md-8
               = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "off", class: 'form-control', id: 'inputPasswordConfirmation'
           .form-group
@@ -35,7 +42,6 @@
               = f.check_box :rule_confirmed, class: 'control-control'
               = link_to '利用規約', terms_path, class: 'form-label'
               に同意する
-            = f.hidden_field :status, value: 'owner' if @status == 1
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-8
               = f.submit 'Sign up', class: 'btn btn-primary'

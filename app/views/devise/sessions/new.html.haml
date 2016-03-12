@@ -24,5 +24,4 @@
           .form-group
             .col-lg-10.col-lg-offset-2.col-md-8
               = f.submit "Log in", class: 'btn btn-primary'
-      - unless request.path == "/admin_users/sign_in"
         = render "devise/shared/links"
