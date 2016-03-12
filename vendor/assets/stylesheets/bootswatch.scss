@@ -1201,3 +1201,8 @@ ul.legals li:last-child::after { content: ""; }
   text-align: center;
   margin-top: 20px;
 }
+#email-caption {
+  .hide {
+    display: none;
+  }
+}

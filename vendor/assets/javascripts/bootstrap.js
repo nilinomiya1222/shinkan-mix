@@ -2361,3 +2361,19 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+
+// customized by nilinomiya1222 for user registration
++function ($) {
+  'use strict';
+
+  $(window).on('load', function () {
+    $('input.input-type-circle').on('click', function() {
+      $('#email-caption').removeClass('hide')
+    })
+    $('input.input-type-newcomer').on('click', function() {
+      $('#email-caption').addClass('hide')
+    })
+  })
+}(jQuery);
+
