@@ -14,8 +14,8 @@ class CreateECircles < ActiveRecord::Migration
       t.integer :member_male, null: false, default: 0
       t.integer :member_female, null: false, default: 0
       t.integer :since
-      t.string :entrance_fee
-      t.string :annual_fee
+      t.integer :entrance_fee
+      t.integer :annual_fee
       t.string :active_weeks
       t.string :active_times
       t.string :hangout
