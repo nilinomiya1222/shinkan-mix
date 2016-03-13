@@ -20,7 +20,7 @@
   %h3.title
     = @genre.type == 'EventType' ? 'Events List' : 'Circles List'
     %span.circle-num
-      = @contents.length
+      = @num
       = @genre.type == 'EventType' ? 'events' : 'circles'
   %hr.title
     .circle-list
