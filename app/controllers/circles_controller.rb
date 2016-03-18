@@ -18,6 +18,7 @@ class CirclesController < ApplicationController
     if current_user.circles.blank?
       if ECircle.where(email: current_user.email).present?
         register_express_circle
+        redirect_to controller: 'users', action: 'show', id: current_user.id and return
       end
       flash[:warning] = 'サークル情報を登録してください'
     end
