@@ -7,6 +7,12 @@
 .container
   .col-lg-2
   .col-lg-8.mypage
+    - if current_user.owner?
+      - if current_user.circles.blank?
+        - if ECircle.where(email: current_user.email).present?
+          %div{class: "alert alert-success", role: 'alert'}
+            Milestone Expressへのご登録に引き続き、新歓MiXへのご登録ありがとうございます。
+            ページ右上の「サークル登録」ボタンより、サークル情報の認証にお進みください。
     .user-info
       .title
         %h3 User Information
