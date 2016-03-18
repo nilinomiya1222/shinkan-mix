@@ -24,7 +24,7 @@ class Circle < ActiveRecord::Base
   validates :name_kana, presence: true
   validates :circle_genre_id, presence: true
   validates :join_grades, presence: true
-  validates :pr, length: { maximum: 25, too_long: 'PRは２５字以内で入力してください'}
+  validates :pr, length: { maximum: 32, too_long: 'PRは２５字以内で入力してください'}
   validates_with PhoneNumberValidator
 
   paginates_per 6
