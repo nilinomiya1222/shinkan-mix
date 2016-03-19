@@ -13,7 +13,7 @@
   %body
     = render 'layouts/header'
     - if user_signed_in? && current_user.owner? && current_user.circles.present?
-      - unless current_user.circle.booth.present?
+      - unless current_user.circles.booth.present?
         %div{class: "alert alert-warning", role: 'alert'}
           ブース情報が未登録です。マイページのサークル情報の編集ページから登録してください。
     - flash.each do |name, msg|
