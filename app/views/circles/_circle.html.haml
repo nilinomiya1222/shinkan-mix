@@ -8,7 +8,7 @@
         = circle.pr
       .info-content
         .circle-number
-          - ec_id = ECircle.find_by(pr: circle.appeal)
+          - ec_id = ECircle.find_by(appeal: circle.appeal, circle_genre_id: circle.circle_genre_id)
           - unless ec_id.nil?
             = image_tag('e_logo.png')
             %span
