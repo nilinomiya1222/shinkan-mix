@@ -1,6 +1,6 @@
 .col-md-4
   = link_to circle_path(circle), class: 'event' do
-    .panel.panel-primary
+    .panel.panel-primary.panel-circle-list
       .panel-heading
         %h3.panel-title
           = circle.name
@@ -8,8 +8,12 @@
         = circle.pr
       .info-content
         .circle-number
-          No.
-          = circle.id
+          - ec_id = ECircle.find_by(pr: circle.appeal)
+          - unless ec_id.nil?
+            = image_tag('e_logo.png')
+            %span
+              No.
+              = ec_id.id
         .genre
           = link_to circle_genre_path(id: circle.circle_genre.id) do
             %span{class: "label label-#{circle.circle_genre.genre_label(circle.lg_genre_name)}"}

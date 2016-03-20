@@ -813,6 +813,15 @@ a.navbar-brand {
   &-footer {
     border-top: none;
   }
+  &-circle-list {
+    height: 210px;
+    img {
+      height: 20px;
+    }
+    span {
+      vertical-align: text-top;
+    }
+  }
 
   &-event {
     &:hover {
