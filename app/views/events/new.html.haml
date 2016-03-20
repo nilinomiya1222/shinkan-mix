@@ -29,7 +29,7 @@
                     = f.radio_button :circle_id, circle.id , { checked: true }
                   - else
                     = f.radio_button :circle_id, circle.id , {}
-                  = f.label :"#{circle.name(circle.circle_genre.name)}"
+                  = f.label :"#{circle.name}(#{circle.circle_genre.name})}"
               %span.help-block イベントを投稿するサークルを選択してください
           .form-group
             = f.label :日付, class: 'col-lg-2 col-md-2 date-label', for: 'inputDate'
