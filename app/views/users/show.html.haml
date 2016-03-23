@@ -99,6 +99,12 @@
                       = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}"
                     - else
                       = image_tag('t_icon.svg', class: 'icon')
+                %tr
+                  %td.key Liked by
+                  %td.value
+                    - circle.likes.each do |lk|
+                      = lk.user.nickname
+                      さん
             = link_to '編集する', edit_circle_path(circle), class: 'btn btn-primary edit-button'
           %div{ class: "tab-pane fade", id:"express-info#{i}"}
             %p Milestone Express 2016ご登録のサークル様のみ公開される情報です
