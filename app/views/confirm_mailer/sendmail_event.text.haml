@@ -1,0 +1,36 @@
+= @circle.name + "様"
+\
+お世話になっております。
+マイルストーン編集会 新歓MiX編集部でございます。
+\
+= @st_date+"〜"+@fn_date+"のイベント登録の締め切りが参りましたので、この期間にご登録頂いたイベント情報の確認メールをお送り致します。"
+\
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+= "ご登録頂いたイベント件数　：　"+ @events.count.to_s+"件"
+\
+- @events.each_with_index do |event, i|
+  = "(No."+i.to_s+")"
+  ・日付
+  = event.date.strftime('%m月%d日')
+  ・ジャンル
+  = event.event_type.name
+  ・集合場所
+  = event.meeting_place
+  ・集合時間
+  = event.meeting_time
+  ・参加料金
+  = event.fee
+  ・実施場所
+  = event.place
+  ・イベント紹介
+  = event.appeal
+  ・イベント登録日時
+  = event.created_at
+  ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+  \
+\
+お問い合わせは以下のアドレスまでお願いします。
+\
+\
+マイルストーン編集会 新歓MiX編集部
+shinkanmix2016@e-mile.com
