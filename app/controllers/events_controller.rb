@@ -54,6 +54,22 @@ class EventsController < ApplicationController
     @events = Event.where(date: params[:date]).page(params[:page])
   end
 
+  def send_mail
+    st_id = params[:circle][:st_id].to_i
+    fn_id = params[:circle][:fn_id].to_i
+    if current_user.admin?
+      if st_id > fn_id
+        redirect_to :show, notice: '始まりと終わりの数値が逆のようです。'
+      else
+        while st_id <= fn_id do
+          ConfirmMailer.sendmail_event(st_id).deliver
+          st_id += 1
+        end
+        redirect_to user_path(id: current_user.id)
+      end
+    end
+  end
+
   private
   def event_params
     params.require(:event).permit(:date, :meeting_place, :meeting_time, :fee, :place, :appeal, :circle_id, :event_type_id).merge(event_term_id: EventTerm.in_term.id)
