@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     end
   end
   def search
-    @events = Event.where(date: params[:date]).page(params[:page])
+    @events = Event.where(date: params[:date])
   end
 
   def send_mail
