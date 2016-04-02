@@ -8,7 +8,8 @@ class ConfirmMailer < ApplicationMailer
   def sendmail_event(c_id)
     if @circle = Circle.find_by(id: c_id)
       @event_term = EventTerm.find_by(status: 1)
-      @events = @circle.events.where(event_term_id: @event_term.id)
+      @events = @circle.events.where("date >= ?", @event_term.start_date)
+      @events = @events.where("date <= ?", @event_term.finish_date)
       unless @events.blank?
         @st_date = @event_term.start_date.strftime('%m月%d日')
         @fn_date = @event_term.finish_date.strftime('%m月%d日')
