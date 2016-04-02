@@ -62,6 +62,9 @@ class EventsController < ApplicationController
         redirect_to :show, notice: '始まりと終わりの数値が逆のようです。'
       else
         while st_id <= fn_id do
+          if st_id % 8 == 0
+            sleep(61)
+          end
           ConfirmMailer.sendmail_event(st_id).deliver
           st_id += 1
         end
