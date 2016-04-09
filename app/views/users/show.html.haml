@@ -92,11 +92,11 @@
                   %td.key メディア
                   %td.value.media-value
                     - unless circle.hp.blank?
-                      = link_to image_tag('hp_icon_active.svg', class: 'icon'), circle.hp
+                      = link_to image_tag('hp_icon_active.svg', class: 'icon'), circle.hp, target: '_blank'
                     - else
                       = image_tag('hp_icon.svg', class: 'icon')
                     - unless circle.twitter.blank?
-                      = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}"
+                      = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{circle.twitter}", target: '_blank'
                     - else
                       = image_tag('t_icon.svg', class: 'icon')
                 %tr
