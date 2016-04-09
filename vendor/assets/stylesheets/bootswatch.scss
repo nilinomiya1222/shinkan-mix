@@ -1180,6 +1180,28 @@ hr.title {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+Share Button
+========================================================================== */
+img.share-icon {
+  height: 20px;
+}
+.btn-share {
+  background-color: #52A5E5;
+  &:hover,
+  &:active:hover {
+    background-color: darken(#52A5E5, 9%);
+  }
+  &:focus {
+    background-color: #52A5E5;
+  }
+  &:active {
+    background-color: darken(#52A5E5, 12%);
+    @include gradient-radial(darken(#52A5E5, 12%) 10%, #52A5E5 11%);
+  }
+}
+
 /* ==========================================================================
 Footer
 ========================================================================== */
