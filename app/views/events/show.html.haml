@@ -65,7 +65,11 @@
     - if user_signed_in?
       - if current_user.id == @event.circle.user_id
         = link_to 'Edit', edit_event_path(id: @event.id), class: 'btn btn-primary event-edit'
-    %hr.span
+    .col-xs-3
+    .col-xs-6#fav-btn
+      = link_to "https://twitter.com/intent/tweet?text=#{@event.circle.name}%20%7C%20%E3%81%93%E3%81%AE%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%E3%80%81%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8B%EF%BC%81&hashtags=%E6%96%B0%E6%AD%93MiX&url=#{request.url}", class: 'btn btn-primary btn-share', target: '_blank' do
+        = image_tag 'share-twitter.svg', class: 'share-icon'
+        シェアする
   .col-lg-2
   .col-lg-12
     .title
