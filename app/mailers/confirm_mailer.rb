@@ -10,16 +10,14 @@ class ConfirmMailer < ApplicationMailer
       @event_term = EventTerm.find(2)
       @events = @circle.events.where("date >= ?", @event_term.start_date)
       @events = @events.where("date <= ?", @event_term.finish_date)
-      unless @events.blank?
-        @st_date = @event_term.start_date.strftime('%m月%d日')
-        @fn_date = @event_term.finish_date.strftime('%m月%d日')
-        mail(
+      @st_date = @event_term.start_date.strftime('%m月%d日')
+      @fn_date = @event_term.finish_date.strftime('%m月%d日')
+      mail(
         to:      "#{@circle.email}",
         subject: "【要確認】新歓MiXイベント情報について",
         from: "新歓MiX編集部",
-        ) do |format|
-          format.text
-        end
+      ) do |format|
+        format.text
       end
     end
   end
