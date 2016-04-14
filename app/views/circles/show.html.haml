@@ -62,15 +62,15 @@
               = link_to image_tag('t_icon_active.svg', class: 'icon'), "https://twitter.com/#{@circle.twitter}", target: '_blank'
             - else
               = image_tag('t_icon.svg', class: 'icon')
-    .col-xs-3
-    .col-xs-6#fav-btn
-      .col-xs-6
+    .col-sm-3
+    .col-xs-12.col-sm-6#fav-btn
+      .col-xs-7.col-sm-6
         = render partial: 'likes/like'
-      .col-xs-6
+      .col-xs-5.col-sm-6
         = link_to "https://twitter.com/intent/tweet?text=#{@circle.name}%20%7C%20%E3%81%93%E3%81%AE%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%E3%80%81%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8B%EF%BC%81&hashtags=%E6%96%B0%E6%AD%93MiX&url=#{request.url}", class: 'btn btn-primary btn-share', target: '_blank' do
           = image_tag 'share-twitter.svg', class: 'share-icon'
-          シェアする
-    .col-xs-3.after-fav
+          シェア
+    .col-xs-12.col-sm-3.after-fav
     - if @circle.published?
       %h3 Milestone Database
       %p Milestone Express 2016ご登録のサークル様のみ公開される情報です

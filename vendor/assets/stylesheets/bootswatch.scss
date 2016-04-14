@@ -108,6 +108,10 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
   &-update {
     text-align: center;
   }
+
+  &-like {
+    padding: 6px;
+  }
 }
 
 #fav-btn {

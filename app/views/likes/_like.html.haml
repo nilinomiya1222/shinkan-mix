@@ -1,5 +1,5 @@
 - if user_signed_in?
-  = button_tag class: 'btn btn-default' do
+  = button_tag class: 'btn btn-default btn-like' do
     - if @circle.like_blank?(current_user)
       = link_to image_tag('fav.svg'), likes_path(circle_id: @circle.id), method: :post, remote: true
     - else
@@ -8,7 +8,7 @@
     %span#favs_count
       = @circle.likes.count
 - else
-  = button_tag class: 'btn btn-default disabled' do
+  = button_tag class: 'btn btn-default disabled btn-like' do
     = image_tag('fav_yellow.svg')
     Like
     %span#favs_count
