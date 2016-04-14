@@ -9,12 +9,15 @@ class EventsController < ApplicationController
   def index
     @events = Event.order('date ASC').page(params[:page])
   end
+
   def show
   end
+
   def new
     @event = Event.new
     @event.date = Date.today
   end
+
   def create
     if current_user.owner?
       @event = Event.new(event_params)
@@ -27,8 +30,10 @@ class EventsController < ApplicationController
       end
     end
   end
+
   def edit
   end
+
   def update
     if @event.circle.user_id == current_user.id
       if @event.update(event_params)
@@ -39,6 +44,7 @@ class EventsController < ApplicationController
       end
     end
   end
+
   def destroy
     if @event.circle.user_id == current_user.id
       if @event.destroy
@@ -50,6 +56,7 @@ class EventsController < ApplicationController
       end
     end
   end
+
   def search
     @events = Event.where(date: params[:date])
   end
