@@ -12,6 +12,8 @@
     = analytics_init if Rails.env.production?
   %body
     = render 'layouts/header'
+    %div{class: "alert alert-danger", role: 'alert'}
+      当サービスは2016年5月31日をもちまして、本年度の運営を終了致します。
     - if user_signed_in? && current_user.owner? && current_user.circles.present?
       - unless current_user.circles[0].booth.present?
         %div{class: "alert alert-warning", role: 'alert'}
