@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
     redirect_to :root
   end
   def welcome_controller?
-    self.controller_name == 'welcome' || request.fullpath =~ /^\/admin\//
+    self.controller_name == 'welcome' || request.fullpath.to_s.include?('admin')
   end
 end
