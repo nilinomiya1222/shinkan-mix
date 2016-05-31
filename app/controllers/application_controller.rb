@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :redirect_close_page, unless: :welcome_controller?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:nickname, :status, :rule_confirmed)
@@ -15,5 +16,11 @@ class ApplicationController < ActionController::Base
     else
       user_path(id: current_user.id)
     end
+  end
+  def redirect_close_page
+    redirect_to :root
+  end
+  def welcome_controller?
+    self.controller_name == 'welcome'
   end
 end

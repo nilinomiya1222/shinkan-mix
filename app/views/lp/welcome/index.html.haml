@@ -1,62 +1,7 @@
 %body#top
   %header#home
-    %nav
-      .container-fluid
-        .row
-          %div{class: "alert alert-danger", role: 'alert'}
-            当サービスは2016年5月31日をもちまして、本年度の運営を終了致します。
-          .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-8.col-xs-offset-2
-            %nav.pull
-              %ul.top-nav
-                %li
-                  %a{:href => "#intro"}
-                    はじめに
-                    %span.indicator
-                      %i.fa.fa-angle-right
-                %li
-                  %a{:href => "#features"}
-                    新歓MiXのご案内
-                    %span.indicator
-                      %i.fa.fa-angle-right
-                %li
-                  %a{:href => "#responsive"}
-                    Web版新歓MiXのご案内
-                    %span.indicator
-                      %i.fa.fa-angle-right
-                %li
-                  %a{:href => "#portfolio"}
-                    イベント登録方法
-                    %span.indicator
-                      %i.fa.fa-angle-right
-                %li
-                  %a{:href => "#team"}
-                    マイルストーン編集会について
-                    %span.indicator
-                      %i.fa.fa-angle-right
-                %li
-                  %a{:href => "#contact"}
-                    連絡先
-                    %span.indicator
-                      %i.fa.fa-angle-right
     %section#hero.hero
       .container
-        .row
-          - flash.each do |name, msg|
-            - if name == 'error'
-              %div{class: "alert alert-danger", role: 'alert'}
-                = msg
-            - elsif name == 'alert'
-              %div{class: "alert alert-warning", role: 'alert'}
-                = msg
-            - elsif name == 'notice'
-              %div{class: "alert alert-success", role: 'alert'}
-                = msg
-            - else
-              %div{class: "alert alert-#{name}", role: 'alert'}
-                = msg
-          .col-md-12.text-right.navicon
-            %a#nav-toggle.nav_slide_button{:href => "#"}
-              %span
         .row
           .col-md-8.col-md-offset-2.text-center.inner
             %h1.animated.fadeInDown
@@ -66,191 +11,18 @@
               %em Milestone Editorial Club
         .row
           .col-md-6.col-md-offset-3.text-center
-            = link_to 'はじめる', circles_path, class: 'learn-more-btn'
+            2016年の当サービスの運用は終了致しました。多くの皆様のご利用ありがとうございました。
+            %br
+            また来年お会いできるのを楽しみにしています。
+            %br
+            当サービスに関するお問い合わせは以下のサイトよりお願いします。
         .row
           .col-md-6.col-md-offset-3.text-center
-            %h3
-              %p もしくは
-        .row
-          .intro-about
-            .col-md-6.col-md-offset-3.text-center
-              %h1.arrow 詳しく知る
-              %div
-                %a.down-arrow-btn{:href => "#intro"}
-                  %i.fa.fa-chevron-down
-  %section#intro.intro.text-center.section-padding
-    .container
-      .row
-        .col-md-8.col-md-offset-2.wp1
-          %h1.arrow 早稲田の春は「マイル」から
-          %p
-            マイルストーン編集会は、新入生とサークルの皆様を応援します
-  %section#features.features.text-center.section-padding
-    .container
-      .row
-        .col-md-12
-          %h1.arrow 自分に合ったサークルを選ぶには……
-          .features-wrapper
-            .col-md-4.wp2
-              .icon
-                %i.fa.fa-book.shadow
-              %h2 Milestone Expressを読む
-              %p
-                『Milestone Express』は、講義やサークル、ゼミ、近隣のワセメシ情報を集めた早大生向けの総合情報誌です。もはや早稲田の春の風物詩となった本誌は、早稲田・高田馬場・所沢近辺の書店等にて販売しています。
-            .col-md-4.wp2.delay-05s
-              .icon
-                %i.fa.fa-laptop.shadow
-              %h2 新歓MiXを見る
-              %p
-                新歓MiXは、３月下旬〜４月にかけて配布される新歓情報満載のフリーペーパーです。今年は待望のWeb版も登場します！出先ではWebで、家ではフリーペーパーで。場面に合わせてお使いください。
-            .col-md-4.wp2.delay-1s
-              .icon
-                %i.fa.fa-heart.shadow
-              %h2 イベントに参加する
-              %p
-                サークルを決めるにはやっぱり人に会ってみることが第一。『Milestone Express』や新歓MiXで情報収集に励んだ後は、実際にイベントに参加してみましょう！
-                大学生活を決める素敵な出会いがきっとそこに。
-            .clearfix
-  %section#responsive.text-center
-    .container-fluid.nopadding.responsive-services
-      .wrapper
-        .iphone
-          .wp3
-        .fluid-white
-      .container.designs
-        .row
-          .col-md-5.col-md-offset-7
-            #servicesSlider
-              %ul.slides
-                %li
-                  %h1.arrow Web版 新歓MiX
-                  %p 早稲田のサークルと新歓期のイベント情報を網羅したフリーペーパー『新歓MiX』を、Webで公開します。
-                  %p お気に入りのサークルをLikeして、気になるサークルのイベントを見逃さないようにしましょう。
-                  %p サークルとイベントの検索もできます。フリーペーパーと合わせて使えば、サークル難民になる心配はありません。
-  %section.swag.text-center
-    .container
-      .row
-        .col-md-8.col-md-offset-2
-          %h1
-            How to 登録
-            %span
-              %em サークルの方へ
-          %a.down-arrow-btn{:href => "#portfolio"}
-            %i.fa.fa-chevron-down
-  %section#portfolio.portfolio.text-center.section-padding
-    .container
-      .row
-        #portfolioSlider
-          %ul.slides
-            %li
-              .col-md-4.wp4
-                .overlay-effect.effects.clearfix
-                  .img
-                    = image_tag 'portfolio-01.jpg'
-                    .overlay
-                      - if user_signed_in?
-                        = link_to circles_path, class: 'expand' do
-                          %i.fa.fa-search
-                          = succeed "TRY" do
-                            %br/
-                      - else
-                        = link_to new_user_registration_path, class: 'expand' do
-                          %i.fa.fa-search
-                          = succeed "TRY" do
-                            %br/
-                      %a.close-overlay.hidden x
-                %h2 ユーザー登録
-                %p まずはユーザー登録をしましょう。必要事項を入力すると、登録したメールアドレスにメールが来ます。メールのリンクをクリックして、早速ログインしましょう。
-              .col-md-4.wp4.delay-05s
-                .overlay-effect.effects.clearfix
-                  .img
-                    = image_tag 'portfolio-02.jpg'
-                    .overlay
-                      = link_to new_circle_path, class: 'expand' do
-                        %i.fa.fa-search
-                        = succeed "TRY" do
-                          %br/
-                      %a.close-overlay.hidden x
-                %h2 サークル情報登録
-                %p ユーザー登録が終わったら、サークル情報を登録しましょう。ブース情報以外は入力が必須です。ミスの無いよう、確認しながら入力してください。
-              .col-md-4.wp4.delay-1s
-                .overlay-effect.effects.clearfix
-                  .img
-                    = image_tag 'portfolio-03.jpg'
-                    .overlay
-                      = link_to new_event_path, class: 'expand' do
-                        %i.fa.fa-search
-                        = succeed "TRY" do
-                          %br/
-                      %a.close-overlay.hidden x
-                %h2 イベント情報登録
-                %p いよいよイベント情報の登録です。登録は３つの期間に分かれており、それぞれ登録可能な期間は異なります。
-                %p また、この情報はフリーペーパー版『新歓MiX』に掲載されます。
-  .ignite-cta.text-center
-    .container
-      .row
-        .col-md-12
-          %a.ignite-btn{:href => "#team"} 新入生募集！
-  %section#team.team.text-center.section-padding
-    .container
-      .row
-        .col-md-12
-          %h1.arrow 私達の活動を紹介します
-      .row
-        .team-wrapper
-          #teamSlider
-            %ul.slides
-              %li
-                .col-md-4.wp5
-                  = image_tag 'team-01.png'
-                  %h2 全国最大規模の出版サークル
-                  %p 私達は、全国でも最大規模の発行部数を誇る出版サークルです。間もなく創立４０周年を迎える当会は、『Milestone Express』を代表とする様々な雑誌を早大生に向けて発行しています。
-                .col-md-4.wp5.delay-05s
-                  = image_tag 'team-02.png'
-                  %h2 刊行物について
-                  %p 私達の発行する雑誌は、春の総合情報誌のみにあらず。季刊のフリーペーパー『MiX』や早稲田祭で配布する『Waseda Festival Edition』そして文芸誌『MILESTONE』。勿論『新歓MiX』も。１年を通じて多様な情報を発信しています。
-                .col-md-4.wp5.delay-1s
-                  = image_tag 'team-03.png'
-                  %h2 多岐にわたる活動フィールド
-                  %p 雑誌は文章やデザインだけで出来ているわけではありません。渉外や広報、そしてあなたが今見ているWebなど、それを支える活動があって成り立っています。始めるときはみんな初心者。新たな世界に飛び込んでみませんか？
-  %section#contact.dark-bg.text-center.section-padding.contact-wrap
-    %a.up-btn{:href => "#top"}
-      %i.fa.fa-chevron-up
-    .container
-      .row
-        .col-md-12
-          %h1.arrow 連絡を待っています
-      .row.contact-details
-        .col-md-4
-          .light-box.box-hover
-            %h2
-              %i.fa.fa-dribbble
-              %span Official HP
-            %p
-              = link_to 'e-mile.com', 'http://e-mile.com'
-        .col-md-4
-          .light-box.box-hover
-            %h2
-              %i.fa.fa-twitter
-              %span Twitter
-            %p
-              = link_to '@milestonewaseda', 'https://twitter.com/milestonewaseda'
-        .col-md-4
-          .light-box.box-hover
-            %h2
-              %i.fa.fa-paper-plane
-              %span Email
-            %p
-              = link_to 'お問い合わせフォームへ', 'http://e-mile.com/contact/common/'
+            = link_to 'マイルストーン編集会公式HP', 'http://e-mile.com', class: 'learn-more-btn'
   %footer
     .container
       .row
         .col-md-6
-          %ul.legals
-            %li
-              = link_to '新歓MiX', circles_path
-            %li
-              = link_to '利用規約', terms_path
         .col-md-6.credit
           %p
             Presented by
